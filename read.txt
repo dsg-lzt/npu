@@ -1,0 +1,43 @@
+[Trial 1/1]
+opType=FurthestPointSample, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047336, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[FPS] B=0 N=256 M=16 tileN=256
+[FPS] m=1 d0=0 d1=241804 md0=0 md1=241804
+[FPS] m=1 sel=216
+[FPS] m=2 d0=407405 d1=83522 md0=0 md1=0
+[FPS] m=2 sel=0
+[FPS] m=3 sel=0
+[FPS] m=4 sel=0
+[FPS] m=5 sel=0
+[FPS] m=6 sel=0
+[FPS] m=7 sel=0
+[FPS] m=8 sel=0
+[FPS] m=9 sel=0
+[FPS] m=10 sel=0
+[FPS] m=11 sel=0
+[FPS] m=12 sel=0
+[FPS] m=13 sel=0
+[FPS] m=14 sel=0
+[FPS] m=15 sel=0
+opType=FurthestPointSample, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+opType=FurthestPointSample, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1048448, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+real: [[  0 216   0   0   0   0   0   0   0   0   0   0   0   0   0   0]]
+gloden [[  0 216  21   5   2 125 168 133  72 217 218 183  11 140 192 238]]
+  [Batch 0] Index Mismatch! Count: 14, First fail at step: 2
+  NPU Index: 0 | CPU Index: 21
+  Result: FAIL | CPU: 0.0005s | NPU: 0.4126s
+
+[FINAL REPORT] case1: 0/1 Successes.
+===> case1 FAILED (Some trials failed) <===
