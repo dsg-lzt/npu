@@ -79,7 +79,6 @@ private:
         AscendC::TQue<AscendC::QuePosition::VECIN,  BUF_NUM> qX, qY, qZ;
         AscendC::TQue<AscendC::QuePosition::VECIN,  BUF_NUM> qMdIn;
         AscendC::TQue<AscendC::QuePosition::VECOUT, BUF_NUM> qMdOut;
-        AscendC::TBuf<AscendC::QuePosition::VECCALC> mdBuf;
         AscendC::TBuf<AscendC::QuePosition::VECCALC> bufDist;
         AscendC::TBuf<AscendC::QuePosition::VECCALC> bufTmp;
         AscendC::TBuf<AscendC::QuePosition::VECCALC> bufSca;
@@ -89,24 +88,21 @@ private:
         pipe.InitBuffer(qZ,     BUF_NUM, tileN_ * sizeof(T));
         pipe.InitBuffer(qMdIn,  BUF_NUM, mdN_ * sizeof(T));
         pipe.InitBuffer(qMdOut, BUF_NUM, mdN_ * sizeof(T));
-        pipe.InitBuffer(mdBuf,    mdN_ * sizeof(T));
         pipe.InitBuffer(bufDist,  tileN_ * sizeof(T));
         pipe.InitBuffer(bufTmp,   tileN_ * sizeof(T));
         pipe.InitBuffer(bufSca,   tileN_ * sizeof(T));
 
-        AscendC::LocalTensor<T> mdAll = mdBuf.Get<T>();
-
-        // Init minDist in GM workspace via DataCopy
+        // Init minDist in GM workspace
         int32_t numTiles = (N_ + tileN_ - 1) / tileN_;
         {
             AscendC::LocalTensor<T> mdInit = qMdOut.AllocTensor<T>();
             AscendC::Duplicate(mdInit, initVal_, tileN_);
             qMdOut.EnQue<T>(mdInit);
             AscendC::LocalTensor<T> mdFlush = qMdOut.DeQue<T>();
+            AscendC::GlobalTensor<T> wsGt;
             for (int32_t t = 0; t < numTiles; ++t) {
                 int32_t tStart = t * tileN_;
                 int32_t curN   = (tStart + tileN_ <= N_) ? tileN_ : (N_ - tStart);
-                AscendC::GlobalTensor<T> wsGt;
                 wsGt.SetGlobalBuffer(batchMdWs + tStart, curN);
                 AscendC::DataCopy(wsGt, mdFlush, curN);
             }
@@ -119,6 +115,9 @@ private:
 
         AscendC::PRINTF("[FPS] B=%d N=%d M=%d tileN=%d\n",
                static_cast<int32_t>(batchIdx), N_, M_, tileN_);
+
+        AscendC::GlobalTensor<T> wsRdGt;
+        AscendC::GlobalTensor<T> wsWrGt;
 
         for (int32_t m = 1; m < M_; ++m) {
             T globalMax     = static_cast<T>(-65504.0);
@@ -139,12 +138,9 @@ private:
                     yLoc.SetValue(i, batchIn[gi * C_ + 1]);
                     zLoc.SetValue(i, batchIn[gi * C_ + 2]);
                 }
-                // Read minDist from GM workspace via DataCopy (MTE, ordered)
-                {
-                    AscendC::GlobalTensor<T> wsGt;
-                    wsGt.SetGlobalBuffer(batchMdWs + tStart, curN);
-                    AscendC::DataCopy(mdIn, wsGt, curN);
-                }
+                // Read minDist from GM workspace
+                wsRdGt.SetGlobalBuffer(batchMdWs + tStart, curN);
+                AscendC::DataCopy(mdIn, wsRdGt, curN);
 
                 qX.EnQue(xLoc);
                 qY.EnQue(yLoc);
@@ -205,12 +201,8 @@ private:
                 qMdIn.FreeTensor(mdVal);
 
                 AscendC::LocalTensor<T> mdFlush = qMdOut.DeQue<T>();
-                // Write minDist to GM workspace via DataCopy (MTE, ordered)
-                {
-                    AscendC::GlobalTensor<T> wsGt;
-                    wsGt.SetGlobalBuffer(batchMdWs + tStart, curN);
-                    AscendC::DataCopy(wsGt, mdFlush, curN);
-                }
+                wsWrGt.SetGlobalBuffer(batchMdWs + tStart, curN);
+                AscendC::DataCopy(wsWrGt, mdFlush, curN);
                 qMdOut.FreeTensor(mdFlush);
             }
 
