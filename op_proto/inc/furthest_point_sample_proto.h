@@ -14,6 +14,7 @@ namespace ge {
 
 REG_OP(FurthestPointSample)
     .INPUT(points, ge::TensorType::ALL())
+    .INPUT(temp, ge::TensorType::ALL())
     .OUTPUT(sampled, ge::TensorType::ALL())
     .REQUIRED_ATTR(m, ge::AttrValue::INT)
     .OP_END_FACTORY_REG(FurthestPointSample);
