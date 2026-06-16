@@ -43,21 +43,18 @@ static ge::graphStatus TilingFunc(gert::TilingContext *context)
     if (coreNum == 0) coreNum = 1;
 
     // ── 4. Compute UB tile sizing ─────────────────────────────────────────
-    // UB budget per element count:
-    //   3 coord queues (VECIN, depth=2) + 1 minDist queue (VECIN, depth=2)
-    //   + 1 minDist queue (VECOUT, depth=2) + 2 temp TBufs (VECCALC)
-    //   = 3*2 + 1*2 + 1*2 + 2 = 12
-    constexpr uint32_t UB_FACTOR = 12;
-    uint32_t tileN = static_cast<uint32_t>(ubSize) / UB_FACTOR / dataTypeLength;
+    // UB budget: 3 coord queues(d2) + mdBuf(N) + dist+tmp+sca = 9*tileN + N
+    uint64_t ubElm = ubSize / dataTypeLength;
+    uint32_t tileN = static_cast<uint32_t>((ubElm - N) / 9);
     if (tileN > static_cast<uint32_t>(N)) tileN = static_cast<uint32_t>(N);
-    if (tileN < 1) tileN = 1;
+    if (tileN < 64) tileN = 64;  // minimum reasonable tile
     uint32_t numTiles = (N + tileN - 1) / tileN;
 
     // ── 5. Multi-core batch distribution ──────────────────────────────────
     uint32_t batchesPerCore = (B + coreNum - 1) / coreNum;
     uint32_t coreRemainder   = B % coreNum;
 
-    // ── 6. Workspace ──────────────────────────────────────────────────────
+    // ── 6. No workspace needed (minDist in UB) ─────────────────────
     constexpr float kFp32Init = 3.402823e+38f;
     constexpr float kFp16Init = 65504.0f;
     uint32_t totalWsBytes = B * N * dataTypeLength;
