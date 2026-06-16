@@ -5,8 +5,7 @@
       "int64Mode": false,
       "simplifiedKeyMode": 0,
       "simplifiedKey": [
-        "FurthestPointSample/d=0,p=1/0,2/0,2",
-        "FurthestPointSample/d=0,p=0/0,2/0,2"
+        "FurthestPointSample/d=0,p=1/0,2/2,2"
       ],
       "staticKey": "furthest_point_sample_float32_key",
       "inputs": [
@@ -24,10 +23,10 @@
         {
           "name": "sampled",
           "index": 0,
-          "dtype": "float32",
+          "dtype": "int32",
           "format": "ND",
           "paramType": "required",
-          "shape": [-2, -2, 3],
+          "shape": [-2, -2],
           "format_match_mode": "FormatAgnostic"
         }
       ],
@@ -51,8 +50,7 @@
       "int64Mode": false,
       "simplifiedKeyMode": 0,
       "simplifiedKey": [
-        "FurthestPointSample/d=0,p=1/1,2/1,2",
-        "FurthestPointSample/d=0,p=0/1,2/1,2"
+        "FurthestPointSample/d=0,p=1/1,2/2,2"
       ],
       "staticKey": "furthest_point_sample_float16_key",
       "inputs": [
@@ -70,10 +68,10 @@
         {
           "name": "sampled",
           "index": 0,
-          "dtype": "float16",
+          "dtype": "int32",
           "format": "ND",
           "paramType": "required",
-          "shape": [-2, -2, 3],
+          "shape": [-2, -2],
           "format_match_mode": "FormatAgnostic"
         }
       ],
