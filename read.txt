@@ -1,5 +1,3 @@
->>> Running 1 trials for case1 (B=1, N=21000, M=2048)
-
 [Trial 1/1]
 ERROR: Synchronize stream failed, error code is 507015, please check plog for more information.
 Traceback (most recent call last):
@@ -10,33 +8,33 @@ Traceback (most recent call last):
   File "/home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/npu/utils.py", line 72, in synchronize
     return torch_npu._C._npu_synchronize()
 RuntimeError: npuSynchronizeDevice:torch_npu/csrc/core/npu/NPUStream.cpp:525 NPU function error: AclrtSynchronizeDeviceWithTimeout, error code is 507015
-[ERROR] 2026-06-16-17:09:19 (PID:850755, Device:0, RankID:-1) ERR00100 PTA call acl api failed
+[ERROR] 2026-06-16-17:16:59 (PID:855379, Device:0, RankID:-1) ERR00100 PTA call acl api failed
 [Error]: The aicore execution is abnormal. 
         Rectify the fault based on the error information in the ascend log.
 EH9999: Inner Error!
         rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 850755] 2026-06-16-17:09:19.155.424 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
+EH9999[PID: 855379] 2026-06-16-17:16:59.133.697 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
         TraceBack (most recent call last):
 
 
-DEVICE[0] PID[850755]: 
+DEVICE[0] PID[855379]: 
 EXCEPTION STREAM:
-  Exception info:TGID=850755, model id=65535, stream id=8, stream phase=SCHEDULE
-  Message info[0]:RTS_HWTS: Aicore exception, slot_id=21, stream_id=8
-    Other info[0]:time=2026-06-16-17:09:17.839.404, function=process_hwts_error_exception, line=646, error code=0x26
-[W616 17:09:19.282091812 NPUStream.cpp:545] Warning: NPU warning, error code is 507015[Error]: 
+  Exception info:TGID=855379, model id=65535, stream id=8, stream phase=SCHEDULE
+  Message info[0]:RTS_HWTS: Aicore exception, slot_id=19, stream_id=8
+    Other info[0]:time=2026-06-16-17:16:57.797.949, function=process_hwts_error_exception, line=646, error code=0x26
+[W616 17:16:59.250047315 NPUStream.cpp:545] Warning: NPU warning, error code is 507015[Error]: 
 [Error]: The aicore execution is abnormal. 
         Rectify the fault based on the error information in the ascend log.
 EH9999: Inner Error!
         rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 850755] 2026-06-16-17:09:19.168.588 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
+EH9999[PID: 855379] 2026-06-16-17:16:59.136.698 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
         TraceBack (most recent call last):
  (function npuSynchronizeUsedDevices)
-[W616 17:09:19.283659490 NPUStream.cpp:527] Warning: NPU warning, error code is 507015[Error]: 
+[W616 17:16:59.251740339 NPUStream.cpp:527] Warning: NPU warning, error code is 507015[Error]: 
 [Error]: The aicore execution is abnormal. 
         Rectify the fault based on the error information in the ascend log.
 EH9999: Inner Error!
         rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 850755] 2026-06-16-17:09:19.170.424 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
+EH9999[PID: 855379] 2026-06-16-17:16:59.138.380 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
         TraceBack (most recent call last):
  (function npuSynchronizeDevice)
