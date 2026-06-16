@@ -96,8 +96,8 @@ private:
         uint32_t selIdx = 0;
         int32_t numTiles = (N_ + tileN_ - 1) / tileN_;
 
-        AscendC::PRINTF("[FPS] B=%d N=%d M=%d tileN=%d sel=(%.2f,%.2f,%.2f)\n",
-               batchIdx, N_, M_, tileN_, (float)selX, (float)selY, (float)selZ);
+        AscendC::PRINTF("[FPS] B=%d N=%d M=%d tileN=%d\n",
+               static_cast<int32_t>(batchIdx), N_, M_, tileN_);
 
         for (int32_t m = 1; m < M_; ++m) {
             T globalMax     = static_cast<T>(-65504.0);
@@ -138,26 +138,29 @@ private:
                 AscendC::LocalTensor<T> sca   = bufSca.Get<T>();
 
                 // dist = (x - selX)^2 + (y - selY)^2 + (z - selZ)^2
-                AscendC::Duplicate(sca, static_cast<T>(selX), curN);
+                AscendC::Duplicate(sca, selX, curN);
                 AscendC::Sub(dist, xTile, sca, curN);
                 AscendC::Mul(dist, dist, dist, curN);
 
-                AscendC::Duplicate(sca, static_cast<T>(selY), curN);
+                AscendC::Duplicate(sca, selY, curN);
                 AscendC::Sub(tmp, yTile, sca, curN);
                 AscendC::Mul(tmp, tmp, tmp, curN);
                 AscendC::Add(dist, dist, tmp, curN);
 
-                AscendC::Duplicate(sca, static_cast<T>(selZ), curN);
+                AscendC::Duplicate(sca, selZ, curN);
                 AscendC::Sub(tmp, zTile, sca, curN);
                 AscendC::Mul(tmp, tmp, tmp, curN);
                 AscendC::Add(dist, dist, tmp, curN);
 
                 AscendC::Min(mdVal, mdVal, dist, curN);
 
-                if (m <= 3 && t == 0) {
-                    AscendC::PRINTF("[FPS] m=%d Min: d0=%.4f d1=%.4f m0=%.4f m1=%.4f\n",
-                           m, (float)dist.GetValue(0), (float)dist.GetValue(1),
-                           (float)mdVal.GetValue(0), (float)mdVal.GetValue(1));
+                if (m <= 2 && t == 0) {
+                    AscendC::PRINTF("[FPS] m=%d d0=%d d1=%d md0=%d md1=%d\n",
+                           m,
+                           static_cast<int32_t>(static_cast<float>(dist.GetValue(0)) * 1000.0f),
+                           static_cast<int32_t>(static_cast<float>(dist.GetValue(1)) * 1000.0f),
+                           static_cast<int32_t>(static_cast<float>(mdVal.GetValue(0)) * 1000.0f),
+                           static_cast<int32_t>(static_cast<float>(mdVal.GetValue(1)) * 1000.0f));
                 }
 
                 AscendC::LocalTensor<T> mdOut = qMdOut.AllocTensor<T>();
@@ -194,10 +197,7 @@ private:
             selZ = batchIn[off + 2];
             batchOut[m] = static_cast<int32_t>(selIdx);
 
-            if (m <= 3) {
-                AscendC::PRINTF("[FPS] m=%d => idx=%d (%.2f,%.2f,%.2f)\n",
-                       m, selIdx, (float)selX, (float)selY, (float)selZ);
-            }
+            AscendC::PRINTF("[FPS] m=%d sel=%d\n", m, static_cast<int32_t>(selIdx));
         }
     }
 
