@@ -1,40 +1,265 @@
-[Trial 1/1]
-ERROR: Synchronize stream failed, error code is 507015, please check plog for more information.
+bash build.sh
+using ASCEND_HOME_PATH: /usr/local/Ascend/ascend-toolkit/latest
+Preset CMake variables:
+
+  ASCEND_CANN_PACKAGE_PATH:PATH="/usr/local/Ascend/ascend-toolkit/latest"
+  ASCEND_COMPUTE_UNIT:STRING="ascend310p"
+  ASCEND_PACK_SHARED_LIBRARY:BOOL="False"
+  ASCEND_PYTHON_EXECUTABLE:STRING="python3"
+  CMAKE_BUILD_TYPE:STRING="Release"
+  CMAKE_CROSS_PLATFORM_COMPILER:PATH="/usr/bin/aarch64-linux-gnu-g++"
+  CMAKE_INSTALL_PREFIX:PATH="/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out"
+  ENABLE_BINARY_PACKAGE:BOOL="True"
+  ENABLE_CROSS_COMPILE:BOOL="False"
+  ENABLE_SOURCE_PACKAGE:BOOL="True"
+  ENABLE_TEST:BOOL="True"
+  vendor_name:STRING="futhestpointsampling"
+
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Opbuild generating sources
+-- Opbuild generating sources - done
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_CROSS_PLATFORM_COMPILER
+
+
+-- Build files have been written to: /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out
+[ 66%] Generating tbe/op_info_cfg/ai_core/ascend310p/aic-ascend310p-ops-info.json
+[ 66%] Building CXX object op_host/CMakeFiles/cust_optiling.dir/furthest_point_sample.cpp.o
+
+
+==============check valid for ops info start==============
+==============check valid for ops info end================
+
+
+Compile op info cfg successfully.
+[ 66%] Built target ops_info_gen_ascend310p
+[100%] Linking CXX shared library libcust_opmaster_rt2.0.so
+[100%] Built target cust_optiling
+[ascend310p] Generating FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16 ...
+[ascend310p] Generating FurthestPointSample_547cf13b590eaf8aedfa614884520a2c ...
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_864156_kernel.cpp:54:5: error: 
+      no matching function for call to 'furthest_point_sample_0_tilingkey'
+    furthest_point_sample(points_in__, sampled_out_, usrWorkspace, tiling);
+    ^~~~~~~~~~~~~~~~~~~~~
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_0_tilingkey
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/op_kernel/furthest_point_sample.cpp:215:39: note: candidate function not viable: requires 5 arguments, but 4 were provided
+extern "C" __global__ __aicore__ void furthest_point_sample(
+                                      ^
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_0_tilingkey
+                              ^
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_864156_kernel.cpp:54:5: error: 
+      no matching function for call to 'furthest_point_sample_1_tilingkey'
+    furthest_point_sample(points_in__, sampled_out_, usrWorkspace, tiling);
+    ^~~~~~~~~~~~~~~~~~~~~
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_1_tilingkey
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/op_kernel/furthest_point_sample.cpp:215:39: note: candidate function not viable: requires 5 arguments, but 4 were provided
+extern "C" __global__ __aicore__ void furthest_point_sample(
+                                      ^
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_1_tilingkey
+                              ^
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_864158_kernel.cpp:54:5: error: 
+      no matching function for call to 'furthest_point_sample_0_tilingkey'
+    furthest_point_sample(points_in__, sampled_out_, usrWorkspace, tiling);
+    ^~~~~~~~~~~~~~~~~~~~~
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_0_tilingkey
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/op_kernel/furthest_point_sample.cpp:215:39: note: candidate function not viable: requires 5 arguments, but 4 were provided
+extern "C" __global__ __aicore__ void furthest_point_sample(
+                                      ^
+<command line>:/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_864158_kernel.cpp14::5431::5 : note: error: expanded from
+       hereno 
+matching function for call#define furthest_point_sample furthest_point_sample_0_tilingkey 
+to                               ^'furthest_point_sample_1_tilingkey'
+
+    furthest_point_sample(points_in__, sampled_out_, usrWorkspace, tiling);
+    ^~~~~~~~~~~~~~~~~~~~~
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_1_tilingkey
+                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/op_kernel/furthest_point_sample.cpp:215:39: note: candidate function not viable: requires 5 arguments, but 4 were provided
+extern "C" __global__ __aicore__ void furthest_point_sample(
+                                      ^
+<command line>:14:31: note: expanded from here
+#define furthest_point_sample furthest_point_sample_1_tilingkey
+                              ^
+1 error generated.
+1 error generated.
+make[5]: *** [FurthestPointSample_547cf13b590eaf8aedfa614884520a2c864156.mk:4：FurthestPointSample_547cf13b590eaf8aedfa614884520a2c864156_0] 错误 1
+make[5]: *** 正在等待未完成的任务....
+make[5]: *** [FurthestPointSample_547cf13b590eaf8aedfa614884520a2c864156.mk:6：FurthestPointSample_547cf13b590eaf8aedfa614884520a2c864156_1] 错误 1
+1 error generated.
+1 error generated.
+make[5]: *** [FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16864158.mk:4：FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16864158_0] 错误 1
+make[5]: *** 正在等待未完成的任务....
+make[5]: *** [FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16864158.mk:6：FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16864158_1] 错误 1
+[INFO] RUNTIME(864156,python3):2026-06-16-17:47:56.435.096 [task_fail_callback_data_manager.cc:58] 864156 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(864156,python3):2026-06-16-17:47:56.452.015 [msprof_callback_impl.cpp:359] >>> (tid:864156) Started to register profiling ctrl callback.
+[EVENT] PROFILING(864156,python3):2026-06-16-17:47:56.452.108 [msprof_callback_impl.cpp:366] >>> (tid:864156) Started to register profiling hash id callback.
+[INFO] PROFILING(864156,python3):2026-06-16-17:47:56.452.112 [prof_atls_plugin.cpp:115] (tid:864156) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(864156,python3):2026-06-16-17:47:56.452.114 [msprof_callback_impl.cpp:373] >>> (tid:864156) Started to register profiling enable host freq callback.
+[INFO] PROFILING(864156,python3):2026-06-16-17:47:56.452.116 [prof_atls_plugin.cpp:115] (tid:864156) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(864156,python3):2026-06-16-17:47:56.452.117 [msprof_callback_impl.cpp:380] >>> (tid:864156) Started to register profiling typeId callback.
+[INFO] PROFILING(864156,python3):2026-06-16-17:47:56.452.119 [prof_atls_plugin.cpp:115] (tid:864156) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(864156,python3):2026-06-16-17:47:56.484.454 [prof_atls_plugin.cpp:215] (tid:864156) Module[61] register callback of ctrl handle.
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.825.408 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  FurthestPointSample_547cf13b590eaf8aedfa614884520a2c ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_1.o: No such file or directory
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.825.549 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_1.o: No such file or directory
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.307 [opc_common.py:231][_log_error] Traceback (most recent call last):
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
+    json_file_path = self.__call_op()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 148, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
+    return func(*args, **kwargs)
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.316 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+    return func(*args, **kwargs)
+  File "/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/dynamic/FurthestPointSample.py", line 228, in furthest_point_sample
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
+    _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.322 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+    fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
+    CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
+    CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.326 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.330 [opc_common.py:231][_log_error] Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_1.o: No such file or directory
+
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.338 [op_compilation.py:196][record_compile_error_info] Op[FurthestPointSample] of index[0] compile failed, kernelName: FurthestPointSample_547cf13b590eaf8aedfa614884520a2c.
+[ERROR] TBE(864156,python3):2026-06-16-17:47:57.826.397 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_1.o: No such file or directory
+].
+Opc tool start working now, please wait for a moment.
+[2026-6-16 9:47:57] [ERROR] [ascend310p] FurthestPointSample_547cf13b590eaf8aedfa614884520a2c ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_1/kernel_meta_FurthestPointSample_547cf13b590eaf8aedfa614884520a2c/kernel_meta/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c_1.o: No such file or directory
+
+[INFO] RUNTIME(864156,python3):2026-06-16-17:47:58.334.687 [task_fail_callback_data_manager.cc:63] 864156 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(864156,python3):2026-06-16-17:47:58.479.172 [stacktrace_signal.c:194](tid:864156) unregister all signal handlers, can not capture signal.
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/binary/ascend310p/furthest_point_sample/FurthestPointSample_547cf13b590eaf8aedfa614884520a2c.json not generated!
+make[4]: *** [/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/furthest_point_sample.make:5：furthest_point_sample1] 错误 1
+make[4]: *** 正在等待未完成的任务....
+[INFO] RUNTIME(864158,python3):2026-06-16-17:47:56.448.535 [task_fail_callback_data_manager.cc:58] 864158 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(864158,python3):2026-06-16-17:47:56.465.648 [msprof_callback_impl.cpp:359] >>> (tid:864158) Started to register profiling ctrl callback.
+[EVENT] PROFILING(864158,python3):2026-06-16-17:47:56.465.727 [msprof_callback_impl.cpp:366] >>> (tid:864158) Started to register profiling hash id callback.
+[INFO] PROFILING(864158,python3):2026-06-16-17:47:56.465.731 [prof_atls_plugin.cpp:115] (tid:864158) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(864158,python3):2026-06-16-17:47:56.465.733 [msprof_callback_impl.cpp:373] >>> (tid:864158) Started to register profiling enable host freq callback.
+[INFO] PROFILING(864158,python3):2026-06-16-17:47:56.465.734 [prof_atls_plugin.cpp:115] (tid:864158) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(864158,python3):2026-06-16-17:47:56.465.736 [msprof_callback_impl.cpp:380] >>> (tid:864158) Started to register profiling typeId callback.
+[INFO] PROFILING(864158,python3):2026-06-16-17:47:56.465.737 [prof_atls_plugin.cpp:115] (tid:864158) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(864158,python3):2026-06-16-17:47:56.497.205 [prof_atls_plugin.cpp:215] (tid:864158) Module[61] register callback of ctrl handle.
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.017 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16 ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_1.o: No such file or directory
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.185 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_1.o: No such file or directory
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.920 [opc_common.py:231][_log_error] Traceback (most recent call last):
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
+    json_file_path = self.__call_op()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 148, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
+    return func(*args, **kwargs)
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.928 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+    return func(*args, **kwargs)
+  File "/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/dynamic/FurthestPointSample.py", line 228, in furthest_point_sample
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
+    _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.933 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+    fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
+    CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
+    CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.937 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.941 [opc_common.py:231][_log_error] Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_1.o: No such file or directory
+
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.845.950 [op_compilation.py:196][record_compile_error_info] Op[FurthestPointSample] of index[0] compile failed, kernelName: FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16.
+[ERROR] TBE(864158,python3):2026-06-16-17:47:57.846.008 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_1.o: No such file or directory
+].
+Opc tool start working now, please wait for a moment.
+[2026-6-16 9:47:57] [ERROR] [ascend310p] FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16 ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_0.o: No such file or directory
+ld.lld: error: cannot open /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/kernel_0/kernel_meta_FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16/kernel_meta/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16_1.o: No such file or directory
+
+[INFO] RUNTIME(864158,python3):2026-06-16-17:47:58.350.937 [task_fail_callback_data_manager.cc:63] 864158 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(864158,python3):2026-06-16-17:47:58.502.752 [stacktrace_signal.c:194](tid:864158) unregister all signal handlers, can not capture signal.
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/binary/ascend310p/furthest_point_sample/FurthestPointSample_c9c3ecbceead698bf0d7ce82dfcbac16.json not generated!
+make[4]: *** [/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/FurthestPointSample_ascend310p/furthest_point_sample.make:3：furthest_point_sample0] 错误 1
 Traceback (most recent call last):
-  File "/home/orange/Documents/Furthest_Point_Sampling/test_op.py", line 145, in <module>
-    TestFPS().test_furthest_point_sampling(sys.argv[1])
-  File "/home/orange/Documents/Furthest_Point_Sampling/test_op.py", line 122, in test_furthest_point_sampling
-    torch.npu.synchronize()
-  File "/home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/npu/utils.py", line 72, in synchronize
-    return torch_npu._C._npu_synchronize()
-RuntimeError: npuSynchronizeDevice:torch_npu/csrc/core/npu/NPUStream.cpp:525 NPU function error: AclrtSynchronizeDeviceWithTimeout, error code is 507015
-[ERROR] 2026-06-16-17:16:59 (PID:855379, Device:0, RankID:-1) ERR00100 PTA call acl api failed
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 855379] 2026-06-16-17:16:59.133.697 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
+  File "/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/cmake/util/ascendc_compile_kernel.py", line 219, in <module>
+    kernel_builder.ascendc_build()
+  File "/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/cmake/util/ascendc_compile_kernel.py", line 162, in ascendc_build
+    raise RuntimeError('Kernel Compilation Error: OpType {} Kernel File {}!'.format(
+RuntimeError: Kernel Compilation Error: OpType FurthestPointSample Kernel File /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/op_kernel/furthest_point_sample.cpp!
+gmake[3]: *** [op_kernel/CMakeFiles/FurthestPointSample_ascend310p.dir/build.make:70：op_kernel/CMakeFiles/FurthestPointSample_ascend310p] 错误 1
+gmake[2]: *** [CMakeFiles/Makefile2:425：op_kernel/CMakeFiles/FurthestPointSample_ascend310p.dir/all] 错误 2
+gmake[1]: *** [CMakeFiles/Makefile2:379：op_kernel/CMakeFiles/binary.dir/rule] 错误 2
+gmake: *** [Makefile:293：binary] 错误 2
+Consolidate compiler generated dependencies of target cust_optiling
+[ 41%] Built target ops_info_gen_ascend310p
+[ 41%] Generating tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 41%] Building CXX object framework/tf_plugin/CMakeFiles/cust_tf_parsers.dir/tensorflow_furthest_point_sampling_plugin.cc.o
+[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 50%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_furthest_point_sample.cpp.o
+[ 50%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/furthest_point_sample.cpp.o
+[ 58%] Generating scripts/install.sh, scripts/upgrade.sh
+[ 75%] Built target cust_optiling
+[ 75%] Built target gen_version_info
+/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/autogen /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/tbe/op_info_cfg/ai_core
+[ 75%] Built target modify_vendor
+[ 75%] Built target optiling_compat
+[INFO] Succed generated /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 75%] Built target npu_supported_ops
+[ 83%] Linking CXX shared library libcust_opapi.so
+[ 83%] Built target cust_opapi
+[ 91%] Linking CXX shared library libcust_tf_parsers.so
+[ 91%] Built target cust_tf_parsers
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target cust_op_proto
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: opp
+CPack: - Install project: opp []
+CMake Error at /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/cmake_install.cmake:62 (file):
+  file INSTALL cannot find
+  "/home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/op_kernel/binary/config":
+  No such file or directory.
+Call Stack (most recent call first):
+  /home/orange/Documents/Furthest_Point_Sampling/FurthestPointSampling/build_out/cmake_install.cmake:57 (include)
 
 
-DEVICE[0] PID[855379]: 
-EXCEPTION STREAM:
-  Exception info:TGID=855379, model id=65535, stream id=8, stream phase=SCHEDULE
-  Message info[0]:RTS_HWTS: Aicore exception, slot_id=19, stream_id=8
-    Other info[0]:time=2026-06-16-17:16:57.797.949, function=process_hwts_error_exception, line=646, error code=0x26
-[W616 17:16:59.250047315 NPUStream.cpp:545] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 855379] 2026-06-16-17:16:59.136.698 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeUsedDevices)
-[W616 17:16:59.251740339 NPUStream.cpp:527] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 855379] 2026-06-16-17:16:59.138.380 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeDevice)
+CPack Error: Error when generating package: opp
+gmake: *** [Makefile:71：package] 错误 1
