@@ -96,6 +96,9 @@ private:
         uint32_t selIdx = 0;
         int32_t numTiles = (N_ + tileN_ - 1) / tileN_;
 
+        AscendC::PRINTF("[FPS] B=%d N=%d M=%d tileN=%d sel=(%.2f,%.2f,%.2f)\n",
+               batchIdx, N_, M_, tileN_, (float)selX, (float)selY, (float)selZ);
+
         for (int32_t m = 1; m < M_; ++m) {
             T globalMax     = static_cast<T>(-65504.0);
             uint32_t globalIdx = 0;
@@ -151,6 +154,12 @@ private:
 
                 AscendC::Min(mdVal, mdVal, dist, curN);
 
+                if (m <= 3 && t == 0) {
+                    AscendC::PRINTF("[FPS] m=%d Min: d0=%.4f d1=%.4f m0=%.4f m1=%.4f\n",
+                           m, (float)dist.GetValue(0), (float)dist.GetValue(1),
+                           (float)mdVal.GetValue(0), (float)mdVal.GetValue(1));
+                }
+
                 AscendC::LocalTensor<T> mdOut = qMdOut.AllocTensor<T>();
                 for (int32_t i = 0; i < curN; ++i) mdOut.SetValue(i, mdVal.GetValue(i));
                 qMdOut.EnQue<T>(mdOut);
@@ -184,6 +193,11 @@ private:
             selY = batchIn[off + 1];
             selZ = batchIn[off + 2];
             batchOut[m] = static_cast<int32_t>(selIdx);
+
+            if (m <= 3) {
+                AscendC::PRINTF("[FPS] m=%d => idx=%d (%.2f,%.2f,%.2f)\n",
+                       m, selIdx, (float)selX, (float)selY, (float)selZ);
+            }
         }
     }
 
