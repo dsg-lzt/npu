@@ -1,0 +1,11 @@
+build/
+build_npu/
+*.o
+*.so
+*.a
+*.tar.gz
+*.zip
+__pycache__/
+*.pyc
+.DS_Store
+add_custom/

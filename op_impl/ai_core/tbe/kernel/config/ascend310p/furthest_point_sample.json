@@ -1,0 +1,96 @@
+{
+  "binList": [
+    {
+      "implMode": "high_performance",
+      "int64Mode": false,
+      "simplifiedKeyMode": 0,
+      "simplifiedKey": [
+        "FurthestPointSample/d=0,p=1/0,2/0,2",
+        "FurthestPointSample/d=0,p=0/0,2/0,2"
+      ],
+      "staticKey": "furthest_point_sample_float32_key",
+      "inputs": [
+        {
+          "name": "points",
+          "index": 0,
+          "dtype": "float32",
+          "format": "ND",
+          "paramType": "required",
+          "shape": [-2, -2, 3],
+          "format_match_mode": "FormatAgnostic"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sampled",
+          "index": 0,
+          "dtype": "float32",
+          "format": "ND",
+          "paramType": "required",
+          "shape": [-2, -2, 3],
+          "format_match_mode": "FormatAgnostic"
+        }
+      ],
+      "attrs": [
+        {
+          "name": "m",
+          "dtype": "int",
+          "value": "?"
+        }
+      ],
+      "opMode": "dynamic",
+      "optionalInputMode": "gen_placeholder",
+      "deterministic": "ignore",
+      "optionalOutputMode": "gen_placeholder",
+      "binInfo": {
+        "jsonFilePath": "ascend310p/furthest_point_sample/furthest_point_sample_float32.json"
+      }
+    },
+    {
+      "implMode": "high_performance",
+      "int64Mode": false,
+      "simplifiedKeyMode": 0,
+      "simplifiedKey": [
+        "FurthestPointSample/d=0,p=1/1,2/1,2",
+        "FurthestPointSample/d=0,p=0/1,2/1,2"
+      ],
+      "staticKey": "furthest_point_sample_float16_key",
+      "inputs": [
+        {
+          "name": "points",
+          "index": 0,
+          "dtype": "float16",
+          "format": "ND",
+          "paramType": "required",
+          "shape": [-2, -2, 3],
+          "format_match_mode": "FormatAgnostic"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sampled",
+          "index": 0,
+          "dtype": "float16",
+          "format": "ND",
+          "paramType": "required",
+          "shape": [-2, -2, 3],
+          "format_match_mode": "FormatAgnostic"
+        }
+      ],
+      "attrs": [
+        {
+          "name": "m",
+          "dtype": "int",
+          "value": "?"
+        }
+      ],
+      "opMode": "dynamic",
+      "optionalInputMode": "gen_placeholder",
+      "deterministic": "ignore",
+      "optionalOutputMode": "gen_placeholder",
+      "binInfo": {
+        "jsonFilePath": "ascend310p/furthest_point_sample/furthest_point_sample_float16.json"
+      }
+    }
+  ]
+}
