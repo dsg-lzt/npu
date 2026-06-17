@@ -1,56 +1,58 @@
+>>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
+
 [Trial 1/1]
-opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=0 blockNum=8
+[GatherCustom] coreIdx=0 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=0 indicesEnd=4 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=1 blockNum=8
+[GatherCustom] coreIdx=1 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=4 indicesEnd=8 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=2 blockNum=8
+[GatherCustom] coreIdx=2 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=8 indicesEnd=12 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=3 blockNum=8
+[GatherCustom] coreIdx=3 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=12 indicesEnd=16 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=4 blockNum=8
+[GatherCustom] coreIdx=4 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=16 indicesEnd=20 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=5 blockNum=8
+[GatherCustom] coreIdx=5 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=20 indicesEnd=24 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=6 blockNum=8
+[GatherCustom] coreIdx=6 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=24 indicesEnd=28 myIndicesNum=4
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=7 blockNum=8
+[GatherCustom] coreIdx=7 blockNum=8 usePad=1
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
 [GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
 [GatherCustom] indicesStart=28 indicesEnd=32 myIndicesNum=4
@@ -87,41 +89,41 @@ real: [[[0. 0. 0.]
   [0. 0. 0.]
   [0. 0. 0.]
   [0. 0. 0.]]]
-gloden [[[ 6.096494    7.5026946  -0.9466582 ]
-  [-2.8868673  -9.292215    3.5061073 ]
-  [ 3.7239947  -1.8200631   1.8253528 ]
-  [ 4.1822224   1.7912961   6.2977643 ]
-  [ 7.2968454  -8.367241    3.2727587 ]
-  [ 1.5074939   8.372466    3.8401868 ]
-  [ 7.019592   -3.074774   -2.7429667 ]
-  [ 3.7056377   7.9511847  -7.5852637 ]
-  [-2.2657616  -8.752192    7.973428  ]
-  [-0.11503415  7.9053     -2.0855856 ]
-  [-9.088933    0.2338789  -2.6809762 ]
-  [-8.589036   -3.3613286   5.865221  ]
-  [ 3.3320937  -0.8894925  -6.312162  ]
-  [-6.5351825   5.282266    5.9282227 ]
-  [ 5.3624477   7.226731    1.3675498 ]
-  [-3.490298    1.4736688   1.4899088 ]
-  [ 4.5623035  -5.0924387  -1.3865888 ]
-  [ 2.2802854   1.6499352  -6.955114  ]
-  [-1.8828067   5.227682   -4.4769654 ]
-  [-4.685062    6.5510945  -5.6608524 ]
-  [-2.526537   -3.79834     3.7753847 ]
-  [ 8.738944   -1.5600421  -9.940166  ]
-  [-1.0212367   0.19807488  3.9409707 ]
-  [ 6.887       1.9181124  -7.958786  ]
-  [-8.0151205  -1.0094094   9.058798  ]
-  [ 2.6485124   4.9661994  -2.4240048 ]
-  [ 5.825397   -3.293577   -0.9743291 ]
-  [ 1.5831828  -8.397324   -9.097528  ]
-  [-0.26041102 -2.3878324  -3.2464302 ]
-  [ 9.942807    3.618096   -3.666825  ]
-  [ 2.8195946  -7.1805444   3.380408  ]
-  [-2.624638   -9.391224   -6.0456953 ]]]
-  Value Diff: Max=9.942807, Mean=4.549452
+gloden [[[-1.7619212   7.824572   -7.9030128 ]
+  [ 0.6626729  -7.0964394   0.1221274 ]
+  [-0.8097934   8.64604     9.822661  ]
+  [ 9.23795    -6.315146    2.7347367 ]
+  [-2.5273595   3.3635323   2.1087747 ]
+  [ 4.9486914   6.404061   -0.25436124]
+  [-6.621957   -3.0667095   1.0616155 ]
+  [-3.5303352   1.1560832   3.71696   ]
+  [ 0.7500888   6.533052   -6.758623  ]
+  [ 9.193796    5.403679    1.1847625 ]
+  [ 0.03013232 -8.460197    9.8496475 ]
+  [-7.933741   -2.3622103  -4.331923  ]
+  [-9.55208    -5.892086   -8.872922  ]
+  [ 7.3809185  -4.1479235  -9.224726  ]
+  [-9.544096    9.159412    7.001689  ]
+  [-4.3653345   7.887029   -2.257815  ]
+  [-1.6127214  -1.1340245   0.6171648 ]
+  [ 0.49224874  1.7134576   8.835137  ]
+  [ 7.760961    3.9734023  -0.14878698]
+  [-7.274686   -0.50542885 -1.9718114 ]
+  [ 7.269954    3.6968093  -9.674624  ]
+  [ 2.262799   -2.760401    7.4915075 ]
+  [-3.2308712   1.5337211   1.4517107 ]
+  [-0.5736416   8.580767   -8.296095  ]
+  [-1.7501994  -2.528046   -5.686614  ]
+  [-0.828816   -7.689683   -6.5701776 ]
+  [-6.731862    4.9561667   5.5700207 ]
+  [-8.755519    2.049683    3.7001724 ]
+  [-9.382429   -5.558118   -2.0615058 ]
+  [ 6.7947783  -4.6826024   9.544476  ]
+  [ 6.3233905  -6.8792243   0.7925939 ]
+  [-4.0383487  -4.565366    8.603114  ]]]
+  Value Diff: Max=9.849648, Mean=4.882094
   [ERROR] Output Value Mismatch!
-  Result: FAIL | CPU: 0.0000s | NPU: 0.5666s
+  Result: FAIL | CPU: 0.0000s | NPU: 0.3811s
 
 [FINAL REPORT] case1: 0/1 Successes.
 ===> case1 FAILED (Some trials failed) <===
