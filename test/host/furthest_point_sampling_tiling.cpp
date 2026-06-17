@@ -73,14 +73,19 @@ static ge::graphStatus InferShape(gert::InferShapeContext* context)
 {
     const gert::Shape* x1_shape = context->GetInputShape(0);
     gert::Shape* y_shape = context->GetOutputShape(0);
-    *y_shape = *x1_shape;
+    int32_t B = static_cast<int32_t>(x1_shape->GetDim(0));
+    auto attrs = context->GetAttrs();
+    int32_t M = 0;
+    const int64_t* mPtr = attrs->GetInt(0);
+    if (mPtr) M = static_cast<int32_t>(*mPtr);
+    y_shape->SetDim(0, B);
+    y_shape->SetDim(1, M);
     return GRAPH_SUCCESS;
 }
 
 static ge::graphStatus InferDataType(gert::InferDataTypeContext* context)
 {
-    const auto inputDataType = context->GetInputDataType(0);
-    context->SetOutputDataType(0, inputDataType);
+    context->SetOutputDataType(0, ge::DT_INT32);
     return ge::GRAPH_SUCCESS;
 }
 }

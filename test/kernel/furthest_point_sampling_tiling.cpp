@@ -232,7 +232,7 @@ public:
             }
 
             PipeBarrier<PIPE_ALL>();
-            SetAtomicAdd<int16_t>();
+            SetAtomicAdd<int32_t>();
             DataCopy(idxsGm[iba], idxs, this->idx_size);
             SetAtomicNone();
             PipeBarrier<PIPE_ALL>();
