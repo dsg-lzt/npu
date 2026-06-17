@@ -18,15 +18,8 @@ const uint64_t BLOCK_SIZE = 32;
 
 static int32_t GetAxis(gert::TilingContext* context)
 {
-    int32_t axis = 0;
-    const auto* axisAttr = context->GetAttrs()->GetAttrPointer<int32_t>(0);
-    if (axisAttr != nullptr) {
-        axis = *axisAttr;
-    }
     int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
-    if (axis < 0) {
-        axis += xDimNum;
-    }
+    int32_t axis = (xDimNum >= 3) ? 1 : 0;
     return axis;
 }
 
@@ -105,16 +98,8 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
 namespace ge {
 static int32_t InferGetAxis(gert::InferShapeContext* context)
 {
-    const auto* axisList = context->GetAttrs()->GetListInt(0);
-    if (axisList != nullptr && axisList->GetSize() > 0) {
-        int32_t axis = static_cast<int32_t>(axisList->GetData()[0]);
-        int32_t xDimNum = context->GetInputShape(0)->GetDimNum();
-        if (axis < 0) {
-            axis += xDimNum;
-        }
-        return axis;
-    }
-    return 0;
+    int32_t xDimNum = context->GetInputShape(0)->GetDimNum();
+    return (xDimNum >= 3) ? 1 : 0;
 }
 
 static ge::graphStatus InferShape(gert::InferShapeContext* context)
@@ -168,8 +153,6 @@ public:
             .DataType({ge::DT_FLOAT16, ge::DT_FLOAT})
             .Format({ge::FORMAT_ND, ge::FORMAT_ND})
             .UnknownShapeFormat({ge::FORMAT_ND, ge::FORMAT_ND});
-        this->Attr("axis").AttrType(OPTIONAL).Int(0);
-
         this->SetInferShape(ge::InferShape).SetInferDataType(ge::InferDataType);
         this->AICore()
             .SetTiling(optiling::TilingFunc)
