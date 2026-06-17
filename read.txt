@@ -1,129 +1,80 @@
 >>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
 
 [Trial 1/1]
-opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=1, total_block_num=1, block_remain_len=1047944, block_initial_space=1048576, rsv=0, magic=5aa5bccd
 CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=0 blockNum=8 usePad=1
+[GatherCustom] coreIdx=0 blockNum=1 aligned=0
 [GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=0 indicesEnd=4 myIndicesNum=4
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3 numPerBlock=8
+[GatherCustom] indicesStart=0 indicesEnd=32 myIndicesNum=32
 [GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=1 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=4 indicesEnd=8 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=2 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=8 indicesEnd=12 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=3 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=12 indicesEnd=16 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=4 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=16 indicesEnd=20 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=5 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=20 indicesEnd=24 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=6 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=24 indicesEnd=28 myIndicesNum=4
-[GatherCustom] coreDone
-opType=GatherCustom, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047968, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=7 blockNum=8 usePad=1
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3
-[GatherCustom] indicesStart=28 indicesEnd=32 myIndicesNum=4
-[GatherCustom] coreDone
-real: [[[0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]]]
-gloden [[[-1.7619212   7.824572   -7.9030128 ]
-  [ 0.6626729  -7.0964394   0.1221274 ]
-  [-0.8097934   8.64604     9.822661  ]
-  [ 9.23795    -6.315146    2.7347367 ]
-  [-2.5273595   3.3635323   2.1087747 ]
-  [ 4.9486914   6.404061   -0.25436124]
-  [-6.621957   -3.0667095   1.0616155 ]
-  [-3.5303352   1.1560832   3.71696   ]
-  [ 0.7500888   6.533052   -6.758623  ]
-  [ 9.193796    5.403679    1.1847625 ]
-  [ 0.03013232 -8.460197    9.8496475 ]
-  [-7.933741   -2.3622103  -4.331923  ]
-  [-9.55208    -5.892086   -8.872922  ]
-  [ 7.3809185  -4.1479235  -9.224726  ]
-  [-9.544096    9.159412    7.001689  ]
-  [-4.3653345   7.887029   -2.257815  ]
-  [-1.6127214  -1.1340245   0.6171648 ]
-  [ 0.49224874  1.7134576   8.835137  ]
-  [ 7.760961    3.9734023  -0.14878698]
-  [-7.274686   -0.50542885 -1.9718114 ]
-  [ 7.269954    3.6968093  -9.674624  ]
-  [ 2.262799   -2.760401    7.4915075 ]
-  [-3.2308712   1.5337211   1.4517107 ]
-  [-0.5736416   8.580767   -8.296095  ]
-  [-1.7501994  -2.528046   -5.686614  ]
-  [-0.828816   -7.689683   -6.5701776 ]
-  [-6.731862    4.9561667   5.5700207 ]
-  [-8.755519    2.049683    3.7001724 ]
-  [-9.382429   -5.558118   -2.0615058 ]
-  [ 6.7947783  -4.6826024   9.544476  ]
-  [ 6.3233905  -6.8792243   0.7925939 ]
-  [-4.0383487  -4.565366    8.603114  ]]]
-  Value Diff: Max=9.849648, Mean=4.882094
+real: [[[ 0.22461873  5.0999     -0.41091463]
+  [-3.6378627   7.5480905   0.9903412 ]
+  [-1.8585395   4.530814    0.22461873]
+  [ 5.0999     -0.41091463 -3.6378627 ]
+  [ 7.5480905   0.9903412  -1.8585395 ]
+  [ 4.530814    0.22461873  5.0999    ]
+  [-0.41091463 -3.6378627   7.5480905 ]
+  [ 0.9903412  -1.8585395   4.530814  ]
+  [ 0.22461873  5.0999     -0.41091463]
+  [-3.6378627   7.5480905   0.9903412 ]
+  [-1.8585395   4.530814    0.22461873]
+  [ 5.0999     -0.41091463 -3.6378627 ]
+  [ 7.5480905   0.9903412  -1.8585395 ]
+  [ 4.530814    0.22461873  5.0999    ]
+  [-0.41091463 -3.6378627   7.5480905 ]
+  [ 0.9903412  -1.8585395   4.530814  ]
+  [ 0.22461873  5.0999     -0.41091463]
+  [-3.6378627   7.5480905   0.9903412 ]
+  [-1.8585395   4.530814    0.22461873]
+  [ 5.0999     -0.41091463 -3.6378627 ]
+  [ 7.5480905   0.9903412  -1.8585395 ]
+  [ 4.530814    0.22461873  5.0999    ]
+  [-0.41091463 -3.6378627   7.5480905 ]
+  [ 0.9903412  -1.8585395   4.530814  ]
+  [ 0.22461873  5.0999     -0.41091463]
+  [-3.6378627   7.5480905   0.9903412 ]
+  [-1.8585395   4.530814    0.22461873]
+  [ 5.0999     -0.41091463 -3.6378627 ]
+  [ 7.5480905   0.9903412  -1.8585395 ]
+  [ 4.530814    0.22461873  5.0999    ]
+  [-0.41091463 -3.6378627   7.5480905 ]
+  [ 0.9903412  -1.8585395   4.530814  ]]]
+gloden [[[-4.6580215  -7.451592    0.6573017 ]
+  [ 7.283788    9.221737    2.0365095 ]
+  [ 4.300153    2.7255468   8.770532  ]
+  [-6.5540357   8.98998     2.8124082 ]
+  [ 3.1035712   4.21909    -2.7322485 ]
+  [-4.5331407   5.7861056  -8.6038685 ]
+  [-5.585092   -9.651182   -9.159041  ]
+  [ 6.3668575   2.739769    6.0193357 ]
+  [ 0.59339803  3.71088     8.873625  ]
+  [-0.5139032  -3.6638782   1.0333061 ]
+  [ 9.265503   -3.3003826   8.501126  ]
+  [ 3.6584976   1.3384913   3.3777096 ]
+  [-8.767181    9.18846     6.9160724 ]
+  [-3.5050046  -0.83476937  3.6565745 ]
+  [-0.53867614  9.951881   -1.3849986 ]
+  [-6.8929043  -5.984689    6.4403176 ]
+  [ 9.866452   -8.213936   -4.8471384 ]
+  [ 1.3262957  -6.857364   -1.896913  ]
+  [ 5.781987   -0.5315468  -1.0085323 ]
+  [-4.123351    2.2440736   6.2759695 ]
+  [-9.105233    7.9503827  -0.1569606 ]
+  [-4.123351    2.2440736   6.2759695 ]
+  [ 2.8666587   1.0563614   4.4395432 ]
+  [ 3.6919138  -9.601041    0.22262007]
+  [ 9.967234   -7.525804    8.289789  ]
+  [-6.50619    -8.605444   -5.9643393 ]
+  [-4.0453515   4.7480927  -2.1421266 ]
+  [-3.8632576  -1.6301874  -7.0188317 ]
+  [-9.385921   -4.5688057   9.813663  ]
+  [ 3.9453182  -1.0398515   4.980877  ]
+  [-8.569205    1.7967565  -6.3714137 ]
+  [ 0.5567948   0.8845839   8.826237  ]]]
+  Value Diff: Max=16.934011, Mean=6.151262
   [ERROR] Output Value Mismatch!
-  Result: FAIL | CPU: 0.0000s | NPU: 0.3811s
+  Result: FAIL | CPU: 0.0000s | NPU: 0.5158s
 
 [FINAL REPORT] case1: 0/1 Successes.
 ===> case1 FAILED (Some trials failed) <===
