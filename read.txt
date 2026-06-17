@@ -1,86 +1,9 @@
-[Trial 1/1]
-opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=1, total_block_num=1, block_remain_len=1047048, block_initial_space=1048576, rsv=0, magic=5aa5bccd
-CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
-[GatherCustom] coreIdx=0 blockNum=1 aligned=0
-[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
-[GatherCustom] ubSliceLen=16384 sliceLoopNum=0 sliceTailLen=3 numPerBlock=8
-[GatherCustom] indicesStart=0 indicesEnd=32 myIndicesNum=32
-[GatherCustom] idx=0 gatherIdx=276 srcBase=828 dstBase=0
-[GatherCustom] idx=1 gatherIdx=549 srcBase=1647 dstBase=3
-[GatherCustom] idx=2 gatherIdx=17 srcBase=51 dstBase=6
-[GatherCustom] idx=3 gatherIdx=715 srcBase=2145 dstBase=9
-[GatherCustom] idx=4 gatherIdx=629 srcBase=1887 dstBase=12
-[GatherCustom] idx=5 gatherIdx=650 srcBase=1950 dstBase=15
-[GatherCustom] idx=6 gatherIdx=811 srcBase=2433 dstBase=18
-[GatherCustom] idx=7 gatherIdx=197 srcBase=591 dstBase=21
-[GatherCustom] coreDone
-real: [[[0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]
-  [0. 0. 0.]]]
-gloden [[[ 1.4540762   0.9747648  -6.6275797 ]
-  [ 9.161906   -3.574448   -7.1836605 ]
-  [-9.656044    4.985395   -9.575178  ]
-  [-0.46647018  0.86872804 -8.20655   ]
-  [-6.671468   -9.544611   -4.150249  ]
-  [-5.0680804   2.6777213   7.3583803 ]
-  [ 8.065655    5.4857974   1.1592144 ]
-  [-6.0213647  -9.533222    6.2779126 ]
-  [-9.05046     8.437274   -9.709714  ]
-  [-0.02548667  1.8128533  -6.5170946 ]
-  [ 6.97042     0.15332204  6.0773983 ]
-  [-7.963681   -0.5177748  -2.0550714 ]
-  [-4.879313    9.11486     3.3749032 ]
-  [-8.445798   -2.1230958   5.737994  ]
-  [ 2.431531    1.4777747  -2.5898695 ]
-  [-2.2236724   6.9788294  -9.600333  ]
-  [-4.429835    3.7714875   0.70897526]
-  [-7.453885    9.06031     3.6104205 ]
-  [ 4.0587173   9.365501   -5.2864323 ]
-  [-2.7930276   6.3067446   5.602064  ]
-  [-2.3113413  -0.22909138 -3.664015  ]
-  [ 9.445851   -8.954082   -0.8174923 ]
-  [-6.8376355   1.2482139  -2.1725538 ]
-  [ 2.3824503  -2.522261   -2.7156286 ]
-  [-5.8333664   3.82158     4.749111  ]
-  [-6.5658402  -6.108253    8.25184   ]
-  [ 1.2005048   4.222925   -7.115141  ]
-  [ 7.709366   -3.848108    7.48603   ]
-  [ 6.8242564  -7.3084903   9.891048  ]
-  [ 2.762555    2.0068533  -7.5548244 ]
-  [ 8.404489   -4.7399707   4.543816  ]
-  [ 9.249505   -7.0850267   1.6676701 ]]]
-  Value Diff: Max=9.891048, Mean=5.184537
-  [ERROR] Output Value Mismatch!
-  Result: FAIL | CPU: 0.0000s | NPU: 0.4721s
+>>> Running 1 trials for case1 (B=1, N=210000, C=3, M=2048)
 
-[FINAL REPORT] case1: 0/1 Successes.
-===> case1 FAILED (Some trials failed) <===
+[Trial 1/1]
+  Value Diff: Max=0.000000, Mean=0.000000
+  [INFO] Output Value check passed!
+  Result: PASS | CPU: 0.0001s | NPU: 0.4031s
+
+[FINAL REPORT] case1: 1/1 Successes.
+===> case1 ALL SUCCESS <===
