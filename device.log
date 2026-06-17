@@ -1,45 +1,45 @@
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.117.207 [main.cpp:293][main][tid:5924] Start para. deviceId=0, hostPid=1086980, pidSign=000000000000000000000000000000000000000000000000, profilingMode=0, vfId=0, logLevel=3, ccecpulogLevel=-1, aicpulogLevel=-1, deviceMode=0, aicpuSchedMode=0, hostProcName=, grpNameNum=0, grpNameList=[]
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.150.639 [aicpusd_resource_limit.cpp:53][AddToCgroup][tid:5924] Add to cgroup success, cmd:[cd /var/  && sudo ./tsdaemon_add_to_usermemory.sh 5924 0 0].
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.150.905 [aicpusd_interface_process.cpp:607][GetCurrentRunMode][tid:5924] Current aicpu mode is online (call from host).
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.150.978 [aicpusd_drv_manager.cpp:321][InitSocType][tid:5924] Soc type is 0
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.010 [aicpusd_drv_manager.cpp:175][GetNormalAicpuInfo][tid:5924] aicpuBitMap[254], aicpuNum[7].
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.025 [aicpusd_drv_manager.cpp:209][GetCcpuInfo][tid:5924] ccpuBitMap[1].
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.092 [aicpusd_drv_manager.cpp:95][GetNormalAicpuDCpuInfo][tid:5924] GetNormalAicpuDCpuInfo, deviceId[0], aicpu_num[7], aicpu_os_sched[1], ccpu_num[1], ccpu_os_sched[1], dcpu_num[0], dcpu_os_sched[1], tscpu_num[0], tscpu_os_sched[0].
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.105 [aicpusd_drv_manager.cpp:292][InitDrvMgrCaluniqueVfId][tid:5924] InitDrvMgr uniqueVfId=0, deviceId=0
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.115 [aicpusd_drv_manager.cpp:372][InitDrvMgr][tid:5924] host pid[1086980], host proc name[], vf id[0], first aicpu index[0], aicpu num[7], dcpu base index[1], dcpu num[0].
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.134 [aicpusd_drv_manager.cpp:568][CheckBindHostPid][tid:5924] Start query process host pid
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.158 [aicpusd_drv_manager.cpp:581][CheckBindHostPid][tid:5924] Query process host pid end, ret=0, hostpid=1086980, expect=1086980, cpType=0
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.173 [aicpusd_drv_manager.cpp:596][CheckBindHostPid][tid:5924] call drvQueryProcessHostPid success, hostpid[1086980], cpType[0]
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.236 [aicpusd_resource_manager.cpp:264][InitBufManager][tid:5924] Aicpu schedule SetBuffCfg successfully!
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.893 [aicpusd_drv_manager.cpp:441][InitDrvSchedModule][tid:5924] Enable process drv queue msg on ccpu, ret is 0.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.151.945 [aicpusd_monitor.cpp:238][SetModelTimeoutFlag][tid:5924] Not set aicpu model timeout. Env is not set.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.152.007 [aicpusd_monitor.cpp:160][InitMonitor][tid:5924] Init aicpu monitor success, taskTimeout=28s, tickFreq=38400000
-[INFO] DRV(5924,aicpu_scheduler):2026-06-17-10:56:22.160.130 [grp_mng.c:81][bufmng] [halGrpCreate 81] Create grp. (grp_name=svm_share_grp_5924; grp_id=303; max_size=0; cache_flag=0)
-[INFO] DRV(5924,aicpu_scheduler):2026-06-17-10:56:22.160.203 [grp_mng.c:144][bufmng] [halGrpAddProc 144] add grp succ, name:svm_share_grp_5924, pid:5924, grp_id:303, admin:1 alloc:0 read:1 write:1 
-[INFO] DRV(5924,aicpu_scheduler):2026-06-17-10:56:22.160.370 [drv_buff_mbuf.c:65][bufmng] [mbufSetPrivFlag 65] Set mbuf priv flag success. (flag=0, g_mbuf_priv_flag=0)
-[INFO] DRV(5924,aicpu_scheduler):2026-06-17-10:56:22.160.391 [grp_mng.c:212][bufmng] [halGrpAttach 212] grp attach, grp_name:svm_share_grp_5924, grp_id:303, timeout:0ms
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.160.422 [aicpusd_worker.cpp:70][ThreadPool][tid:5924] ThreadPool
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.160.846 [aicpusd_worker.cpp:281][AddPidToTask][tid:5937] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.035 [aicpusd_worker.cpp:281][AddPidToTask][tid:5938] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.144 [aicpusd_worker.cpp:281][AddPidToTask][tid:5939] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.242 [aicpusd_worker.cpp:281][AddPidToTask][tid:5936] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.349 [aicpusd_worker.cpp:281][AddPidToTask][tid:5935] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.446 [aicpusd_worker.cpp:281][AddPidToTask][tid:5934] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.161.545 [aicpusd_worker.cpp:281][AddPidToTask][tid:5933] AddPidToTask by WriteTidForAffinity
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.333.322 [aicpusd_threads_process.cpp:61][LoadKernelSo][tid:5924] Start to preload aicpu so.
-[WARNING] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.333.489 [ae_kernel_lib_fwk.cc:328][LoadTfSo][tid:5924][AICPU_PROCESSER] load tensorflow so failed, ret is[11002]
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.456.975 [aicpusd_threads_process.cpp:65][LoadKernelSo][tid:5924] End to preload aicpu so.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.457.229 [aicpusd_threads_process.cpp:81][LoadExtendKernelSo][tid:5924] Start to preload extend kernel so.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.483.600 [aicpusd_threads_process.cpp:85][LoadExtendKernelSo][tid:5924] End to preload extend kernel so.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.484.540 [aicpusd_cust_so_manager.cpp:75][InitAicpuCustSoManager][tid:5924] Cust so manager init success, dir=/home/CustAiCpuUser/cust_aicpu_0_0_1086980/, runMode=0, schedMode=0
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.484.623 [main.cpp:320][main][tid:5924] Aicpu schedule start success, LD_LIBRARY_PATH=/usr/lib64/aicpu_kernels/0/aicpu_kernels_device/:/usr/lib64/aicpu_kernels/0/aicpu_kernels_device/sand_box/:/home/HwHiAiUser/hs/0/runtime/lib64/:
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.484.658 [main.cpp:331][main][tid:5924] Aicpu schedule attach and init success.
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.484.700 [tsd_event_client.cpp:385][ReportMsgToTsd][tid:5924] [TsdEventClient] Enter ReportMsgToTsd deviceid[0],hostPid[1086980],vfId[0].
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.484.736 [tsd_event_client.cpp:401][ReportMsgToTsd][tid:5924] [TsdEventClient] subCapabityType[8], value[1]
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.485.132 [tsd_event_client.cpp:408][ReportMsgToTsd][tid:5924] [TsdEventClient] Submit event ReportMsgToTsd to tsd success.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.487.432 [main.cpp:200][RegQueueScheduleModuleCallBack][tid:5924] RegQueueScheduleModuleCallBack success
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.487.499 [tsd_event_client.cpp:268][TsdStartupResponse][tid:5924] [TsdEventClient] TsdStartupResponseProc to dev[0] pid[2888] hostpid[1086980] vfId[0] is running.
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.487.909 [tsd_event_client.cpp:287][TsdStartupResponse][tid:5924] [TsdEventClient] Submit event TSD_EVENT_START_RSP to tsd success.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.487.940 [main.cpp:346][main][tid:5924] Aicpu startup response return success.
-[INFO] TDT(5924,aicpu_scheduler):2026-06-17-10:56:22.487.964 [tsd_event_client.cpp:232][DoLoopProcessEvent][tid:5924] [TsdEventClient] Start wait event, deviceId=0.
-[INFO] CCECPU(5924,aicpu_scheduler):2026-06-17-10:56:22.488.839 [aicpusd_period_statistic.cpp:132][SetThreadAffinity][tid:5962] aicpu bind by self success
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.701.858 [main.cpp:293][main][tid:6870] Start para. deviceId=0, hostPid=1100009, pidSign=000000000000000000000000000000000000000000000000, profilingMode=0, vfId=0, logLevel=3, ccecpulogLevel=-1, aicpulogLevel=-1, deviceMode=0, aicpuSchedMode=0, hostProcName=, grpNameNum=0, grpNameList=[]
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.734.940 [aicpusd_resource_limit.cpp:53][AddToCgroup][tid:6870] Add to cgroup success, cmd:[cd /var/  && sudo ./tsdaemon_add_to_usermemory.sh 6870 0 0].
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.162 [aicpusd_interface_process.cpp:607][GetCurrentRunMode][tid:6870] Current aicpu mode is online (call from host).
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.254 [aicpusd_drv_manager.cpp:321][InitSocType][tid:6870] Soc type is 0
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.278 [aicpusd_drv_manager.cpp:175][GetNormalAicpuInfo][tid:6870] aicpuBitMap[254], aicpuNum[7].
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.301 [aicpusd_drv_manager.cpp:209][GetCcpuInfo][tid:6870] ccpuBitMap[1].
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.368 [aicpusd_drv_manager.cpp:95][GetNormalAicpuDCpuInfo][tid:6870] GetNormalAicpuDCpuInfo, deviceId[0], aicpu_num[7], aicpu_os_sched[1], ccpu_num[1], ccpu_os_sched[1], dcpu_num[0], dcpu_os_sched[1], tscpu_num[0], tscpu_os_sched[0].
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.381 [aicpusd_drv_manager.cpp:292][InitDrvMgrCaluniqueVfId][tid:6870] InitDrvMgr uniqueVfId=0, deviceId=0
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.390 [aicpusd_drv_manager.cpp:372][InitDrvMgr][tid:6870] host pid[1100009], host proc name[], vf id[0], first aicpu index[0], aicpu num[7], dcpu base index[1], dcpu num[0].
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.408 [aicpusd_drv_manager.cpp:568][CheckBindHostPid][tid:6870] Start query process host pid
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.442 [aicpusd_drv_manager.cpp:581][CheckBindHostPid][tid:6870] Query process host pid end, ret=0, hostpid=1100009, expect=1100009, cpType=0
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.451 [aicpusd_drv_manager.cpp:596][CheckBindHostPid][tid:6870] call drvQueryProcessHostPid success, hostpid[1100009], cpType[0]
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.735.510 [aicpusd_resource_manager.cpp:264][InitBufManager][tid:6870] Aicpu schedule SetBuffCfg successfully!
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.736.183 [aicpusd_drv_manager.cpp:441][InitDrvSchedModule][tid:6870] Enable process drv queue msg on ccpu, ret is 0.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.736.220 [aicpusd_monitor.cpp:238][SetModelTimeoutFlag][tid:6870] Not set aicpu model timeout. Env is not set.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.736.273 [aicpusd_monitor.cpp:160][InitMonitor][tid:6870] Init aicpu monitor success, taskTimeout=28s, tickFreq=38400000
+[INFO] DRV(6870,aicpu_scheduler):2026-06-17-11:22:24.744.358 [grp_mng.c:81][bufmng] [halGrpCreate 81] Create grp. (grp_name=svm_share_grp_6870; grp_id=304; max_size=0; cache_flag=0)
+[INFO] DRV(6870,aicpu_scheduler):2026-06-17-11:22:24.744.430 [grp_mng.c:144][bufmng] [halGrpAddProc 144] add grp succ, name:svm_share_grp_6870, pid:6870, grp_id:304, admin:1 alloc:0 read:1 write:1 
+[INFO] DRV(6870,aicpu_scheduler):2026-06-17-11:22:24.744.602 [drv_buff_mbuf.c:65][bufmng] [mbufSetPrivFlag 65] Set mbuf priv flag success. (flag=0, g_mbuf_priv_flag=0)
+[INFO] DRV(6870,aicpu_scheduler):2026-06-17-11:22:24.744.629 [grp_mng.c:212][bufmng] [halGrpAttach 212] grp attach, grp_name:svm_share_grp_6870, grp_id:304, timeout:0ms
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.744.656 [aicpusd_worker.cpp:70][ThreadPool][tid:6870] ThreadPool
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.102 [aicpusd_worker.cpp:281][AddPidToTask][tid:6883] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.279 [aicpusd_worker.cpp:281][AddPidToTask][tid:6884] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.390 [aicpusd_worker.cpp:281][AddPidToTask][tid:6885] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.490 [aicpusd_worker.cpp:281][AddPidToTask][tid:6882] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.603 [aicpusd_worker.cpp:281][AddPidToTask][tid:6881] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.699 [aicpusd_worker.cpp:281][AddPidToTask][tid:6880] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.745.802 [aicpusd_worker.cpp:281][AddPidToTask][tid:6879] AddPidToTask by WriteTidForAffinity
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.919.504 [aicpusd_threads_process.cpp:61][LoadKernelSo][tid:6870] Start to preload aicpu so.
+[WARNING] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:24.919.677 [ae_kernel_lib_fwk.cc:328][LoadTfSo][tid:6870][AICPU_PROCESSER] load tensorflow so failed, ret is[11002]
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.039.038 [aicpusd_threads_process.cpp:65][LoadKernelSo][tid:6870] End to preload aicpu so.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.039.295 [aicpusd_threads_process.cpp:81][LoadExtendKernelSo][tid:6870] Start to preload extend kernel so.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.066.177 [aicpusd_threads_process.cpp:85][LoadExtendKernelSo][tid:6870] End to preload extend kernel so.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.067.174 [aicpusd_cust_so_manager.cpp:75][InitAicpuCustSoManager][tid:6870] Cust so manager init success, dir=/home/CustAiCpuUser/cust_aicpu_0_0_1100009/, runMode=0, schedMode=0
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.067.257 [main.cpp:320][main][tid:6870] Aicpu schedule start success, LD_LIBRARY_PATH=/usr/lib64/aicpu_kernels/0/aicpu_kernels_device/:/usr/lib64/aicpu_kernels/0/aicpu_kernels_device/sand_box/:/home/HwHiAiUser/hs/0/runtime/lib64/:
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.067.291 [main.cpp:331][main][tid:6870] Aicpu schedule attach and init success.
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.067.332 [tsd_event_client.cpp:385][ReportMsgToTsd][tid:6870] [TsdEventClient] Enter ReportMsgToTsd deviceid[0],hostPid[1100009],vfId[0].
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.067.370 [tsd_event_client.cpp:401][ReportMsgToTsd][tid:6870] [TsdEventClient] subCapabityType[8], value[1]
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.067.747 [tsd_event_client.cpp:408][ReportMsgToTsd][tid:6870] [TsdEventClient] Submit event ReportMsgToTsd to tsd success.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.070.027 [main.cpp:200][RegQueueScheduleModuleCallBack][tid:6870] RegQueueScheduleModuleCallBack success
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.070.092 [tsd_event_client.cpp:268][TsdStartupResponse][tid:6870] [TsdEventClient] TsdStartupResponseProc to dev[0] pid[2888] hostpid[1100009] vfId[0] is running.
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.070.515 [tsd_event_client.cpp:287][TsdStartupResponse][tid:6870] [TsdEventClient] Submit event TSD_EVENT_START_RSP to tsd success.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.070.548 [main.cpp:346][main][tid:6870] Aicpu startup response return success.
+[INFO] TDT(6870,aicpu_scheduler):2026-06-17-11:22:25.070.575 [tsd_event_client.cpp:232][DoLoopProcessEvent][tid:6870] [TsdEventClient] Start wait event, deviceId=0.
+[INFO] CCECPU(6870,aicpu_scheduler):2026-06-17-11:22:25.072.278 [aicpusd_period_statistic.cpp:132][SetThreadAffinity][tid:6908] aicpu bind by self success
