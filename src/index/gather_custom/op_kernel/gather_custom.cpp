@@ -153,23 +153,19 @@ private:
             LocalTensor<T> dData = copyQueue.DeQue<T>();
 
             if (srcOffset < 100 && dstOffset < 100) {
-                float sFirst = static_cast<float>(sData[srcOffInBlock]);
-                float sLast = static_cast<float>(sData[srcOffInBlock + copyNow - 1]);
-                float dFirst = static_cast<float>(dData[dstOffInBlock]);
-                PRINTF("[RMW] srcAligned=%lu dstAligned=%lu srcOff=%lu dstOff=%lu copyNow=%lu s0=%f s1=%f d0=%f\n",
-                       srcAligned, dstAligned, srcOffInBlock, dstOffInBlock, copyNow, sFirst, sLast, dFirst);
+                PRINTF("[RMW] srcAligned=%lu dstAligned=%lu srcOff=%lu dstOff=%lu copyNow=%lu\n",
+                       srcAligned, dstAligned, srcOffInBlock, dstOffInBlock, copyNow);
             }
 
-            // Modify destination block in UB
+            // Modify destination block in UB (use () for element access, [] returns sub-tensor)
             for (uint64_t i = 0; i < copyNow; ++i) {
-                dData[dstOffInBlock + i] = sData[srcOffInBlock + i];
+                dData.SetValue(dstOffInBlock + i, sData.GetValue(srcOffInBlock + i));
             }
-            PipeBarrier<PIPE_ALL>();
+
+            PipeBarrier<PIPE_MTE3>();
 
             if (srcOffset < 100 && dstOffset < 100) {
-                float dAfter = static_cast<float>(dData[dstOffInBlock]);
-                float sCheck = static_cast<float>(sData[srcOffInBlock]);
-                PRINTF("[RMW] after mod: dData=%f sData=%f\n", dAfter, sCheck);
+                PRINTF("[RMW] after mod\n");
             }
 
             // Write 32B-aligned destination block back to GM
