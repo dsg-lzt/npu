@@ -47,8 +47,7 @@ public:
         yGm.SetGlobalBuffer((__gm__ T*)y);
         this->indicesGm = (__gm__ int32_t*)indices;
 
-        pipe->InitBuffer(inQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
-        pipe->InitBuffer(outQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
+        pipe->InitBuffer(copyQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
     }
 
     __aicore__ inline void Process()
@@ -76,16 +75,16 @@ public:
 private:
     __aicore__ inline void CopyIn(uint64_t offset, uint64_t len)
     {
-        LocalTensor<T> local = inQueue.AllocTensor<T>();
+        LocalTensor<T> local = copyQueue.AllocTensor<T>();
         DataCopy(local, xGm[offset], len);
-        inQueue.EnQue(local);
+        copyQueue.EnQue(local);
     }
 
     __aicore__ inline void CopyOut(uint64_t offset, uint64_t len)
     {
-        LocalTensor<T> local = outQueue.DeQue<T>();
+        LocalTensor<T> local = copyQueue.DeQue<T>();
         DataCopy(yGm[offset], local, len);
-        outQueue.FreeTensor(local);
+        copyQueue.FreeTensor(local);
     }
 
 private:
@@ -93,8 +92,7 @@ private:
     GlobalTensor<T> yGm;
     __gm__ int32_t* indicesGm;
     TPipe* pipe;
-    TQue<QuePosition::VECIN, BUFFER_NUM> inQueue;
-    TQue<QuePosition::VECOUT, BUFFER_NUM> outQueue;
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
 
     uint64_t numIndices;
     uint64_t sliceLength;
