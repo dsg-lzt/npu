@@ -1,67 +1,129 @@
 >>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
 
 [Trial 1/1]
-[E617 15:37:06.295742705 OpParamMaker.cpp:350] call aclnnGatherCustom failed, detail:[PID: 1191097] 2026-06-17-15:37:06.173.727 AclNN_Runtime_Error(EZ9903): Assert ((rtKernelLaunchWithHandleV2(executor->args->binInfo->binHandle, tilingKey, blockDim, &executor->argsExt, nullptr, stream, &cfgInfo)) == 0) failed
-        Solution: In this scenario, collect the plog when the fault occurs and locate the fault based on the plog.
-        TraceBack (most recent call last):
-        Can not find kernel by function[0x0], tilingKey=1.[FUNC:LaunchKernelPrepare][FILE:context.cc][LINE:869]
-        kernel launch kernel prepare failed.[FUNC:LaunchKernelWithHandle][FILE:context.cc][LINE:1334]
-        rtKernelLaunchWithHandleV2 execute failed, reason=[kernel pointer null][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-        Assert ((rtKernelLaunchWithHandleV2(executor->args->binInfo->binHandle, tilingKey, blockDim, &executor->argsExt, nullptr, stream, &cfgInfo)) == 0) failed
-        Assert ((NnopbaseExecutorLaunchKernel(executor, stream, blockDim)) == 0) failed
-        Check NnopbaseExecutorKernelLaunch(executor, stream) failed
-        Check NnopbaseRunWithWorkspace(executor, stream, workspace, workspaceSize) failed
+opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=0 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=0 indicesEnd=4 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=1 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=4 indicesEnd=8 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=2 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=8 indicesEnd=12 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=3 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=12 indicesEnd=16 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=4 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=16 indicesEnd=20 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=5 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=20 indicesEnd=24 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=6 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=24 indicesEnd=28 myIndicesNum=4
+[GatherCustom] coreDone
+opType=GatherCustom, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047984, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] coreIdx=7 blockNum=8
+[GatherCustom] outerLength=1 gatherDimSize=1024 sliceLength=3
+[GatherCustom] ubSliceLen=16384 sliceLoopNum=1 sliceTailLen=3
+[GatherCustom] indicesStart=28 indicesEnd=32 myIndicesNum=4
+[GatherCustom] coreDone
+real: [[[ 3.6032772  -7.076258    8.240765  ]
+  [-6.292649    5.2985864   1.6535025 ]
+  [-8.917043   -4.2075996  -1.98471   ]
+  [-6.669211    9.467796    8.61256   ]
+  [ 2.405905    4.7135715  -2.7945385 ]
+  [ 0.8436023   4.6312065  -7.4769516 ]
+  [-1.1398828  -0.88507724 -4.2647295 ]
+  [ 2.0915492  -2.2172093   2.0056005 ]
+  [-9.521112    6.724584    2.7740445 ]
+  [-3.0008872  -4.490148   -2.3873622 ]
+  [ 2.1262956   5.992034    7.0356197 ]
+  [-3.8735785   2.4951634  -4.0514874 ]
+  [-4.8014092   4.680789    5.539827  ]
+  [-9.12065    -6.4923635  -5.1662846 ]
+  [ 2.2757761   5.2125287   7.6274743 ]
+  [ 3.710925   -1.6011003   6.9344535 ]
+  [-1.7182542  -6.774984   -4.539828  ]
+  [-1.5387468   6.292035    2.8070898 ]
+  [-6.3468122  -6.3879194   3.07838   ]
+  [-0.4541465  -4.9980874  -6.7298145 ]
+  [ 8.946663   -1.287148   -6.1415825 ]
+  [ 0.6708945  -2.0942361   3.7106912 ]
+  [ 9.186701    1.7347658   5.7251625 ]
+  [-8.793461   -5.208828    2.9472764 ]
+  [-9.906028    1.6224507  -6.7158957 ]
+  [ 7.677213    0.45019993 -1.1660945 ]
+  [ 2.988165   -2.010801   -7.2517323 ]
+  [-9.831179   -9.093543    2.1452334 ]
+  [-5.614488    1.4923044  -7.8981166 ]
+  [ 4.4492164   5.133421    7.4324527 ]
+  [ 6.349882    1.0217338   4.7687507 ]
+  [-5.461455   -7.1471825   4.171697  ]]]
+gloden [[[ 3.6032772  -7.076258    8.240765  ]
+  [-6.292649    5.2985864   1.6535025 ]
+  [-8.917043   -4.2075996  -1.98471   ]
+  [-6.669211    9.467796    8.61256   ]
+  [ 2.969985   -3.9584684   1.3992326 ]
+  [-9.858453    9.64658     5.879983  ]
+  [ 0.7808074   7.293722    2.8846061 ]
+  [ 6.5728455   3.873782    5.8887315 ]
+  [-4.1943793  -1.9210567   0.015056  ]
+  [ 0.7956108  -1.0420456  -5.014946  ]
+  [ 4.605683   -1.7725915  -1.0132214 ]
+  [-3.8735785   2.4951634  -4.0514874 ]
+  [ 6.3304048  -5.352788    8.999049  ]
+  [ 0.30505228 -5.810294    3.7923698 ]
+  [-0.08370509 -0.9060735  -9.516764  ]
+  [-0.6762225   4.41858    -3.284782  ]
+  [-1.2615916   2.9168775  -4.0033526 ]
+  [ 0.8436023   4.6312065  -7.4769516 ]
+  [-4.4268484  -4.6815605  -0.23988393]
+  [ 0.5734686   5.2655463  -6.8885117 ]
+  [ 3.9947667   8.291167   -5.743325  ]
+  [ 5.0051956   6.0118413   0.12047748]
+  [ 4.278849    0.46919906 -7.3027196 ]
+  [-8.793461   -5.208828    2.9472764 ]
+  [ 8.591194    1.2066056   7.288666  ]
+  [ 5.3997936  -6.297668   -7.2598896 ]
+  [-6.4610877   5.6211686  -5.622353  ]
+  [ 9.635955    7.5287657  -7.7649407 ]
+  [ 2.0915492  -2.2172093   2.0056005 ]
+  [ 3.7348044   4.114073   -6.238258  ]
+  [-3.0782228   1.0723425   3.4218771 ]
+  [ 4.976036   -0.20909855 -9.084189  ]]]
+  Value Diff: Max=19.467133, Mean=5.141033
+  [ERROR] Output Value Mismatch!
+  Result: FAIL | CPU: 0.0000s | NPU: 0.4263s
 
-Exception raised from operator() at ./extension/custom_op.cpp:36 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f084edff056 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch/lib/libc10.so)
-frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::string const&) + 0x64 (0x7f084eda8776 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch/lib/libc10.so)
-frame #2: <unknown function> + 0xc065 (0x7f07b5866065 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/custom_ops_lib.cpython-310-x86_64-linux-gnu.so)
-frame #3: <unknown function> + 0x36fdc01 (0x7f0818749c01 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/lib/libtorch_npu.so)
-frame #4: <unknown function> + 0xf3cf8d (0x7f0815f88f8d in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/lib/libtorch_npu.so)
-frame #5: <unknown function> + 0xf3e1b0 (0x7f0815f8a1b0 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/lib/libtorch_npu.so)
-frame #6: <unknown function> + 0xf3a377 (0x7f0815f86377 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/lib/libtorch_npu.so)
-frame #7: <unknown function> + 0xcb940 (0x7f084ee3a940 in /home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch/lib/libc10.so)
-frame #8: <unknown function> + 0x94ac3 (0x7f086637dac3 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #9: <unknown function> + 0x1268d0 (0x7f086640f8d0 in /lib/x86_64-linux-gnu/libc.so.6)
-
-Traceback (most recent call last):
-  File "/home/orange/Documents/Gather/test_op.py", line 122, in <module>
-    TestGather().test_gather_operation(sys.argv[1])
-  File "/home/orange/Documents/Gather/test_op.py", line 95, in test_gather_operation
-    output_npu = custom_ops_lib.gather(features_npu, indices_npu)
-RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnGatherCustom.
-Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
-Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
-[ERROR] 2026-06-17-15:37:06 (PID:1191097, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
-
-[WARNING] The specified program cannot exit normally, exitCode:1. Please check your code or make sure that the operation is valid.
-[INFO] Start export data in PROF_000001_20260617153702500_OJKGGQEABCKCAKAC.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/host" ...
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/host" finished.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0" ...
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0" finished.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_export.py: There is no timeline data to export for "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/host"
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: Start exporting timeline output_file.
-Wed 17 Jun 2026 15:37:16 [INFO] [MSVP] [1191601] msprof_common.py: End exporting timeline output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/mindstudio_profiler_output path.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/host" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_export.py: There is no summary data to export for "/home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/host"
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/device_0.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_common.py: Start exporting summary output_file.
-Wed 17 Jun 2026 15:37:17 [INFO] [MSVP] [1191755] msprof_common.py: End exporting summary output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC/mindstudio_profiler_output path.
-[INFO] Export all data in PROF_000001_20260617153702500_OJKGGQEABCKCAKAC done.
-[INFO] Start query data in PROF_000001_20260617153702500_OJKGGQEABCKCAKAC.
-Job Info        Device ID       Dir Name        Collection Time                 Model ID        Iteration Number        Top Time Iteration      Rank ID
-
-NA                              host            2026-06-17 15:37:02.501766      N/A             N/A                     N/A                     -1     
-
-NA              0               device_0        2026-06-17 15:37:03.071598      N/A             N/A                     N/A                     -1     
-
-[INFO] Query all data in PROF_000001_20260617153702500_OJKGGQEABCKCAKAC done.
-[INFO] Profiling finished.
-[INFO] Process profiling data complete. Data is saved in /home/orange/Documents/Gather/PROF_000001_20260617153702500_OJKGGQEABCKCAKAC
+[FINAL REPORT] case1: 0/1 Successes.
+===> case1 FAILED (Some trials failed) <===
