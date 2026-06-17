@@ -53,8 +53,6 @@ public:
         this->numPerBlock = ONE_BLK_BYTES / sizeof(T);
 
         pipe->InitBuffer(copyQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
-        pipe->InitBuffer(srcBuf, this->numPerBlock * sizeof(T));
-        pipe->InitBuffer(dstBuf, this->numPerBlock * sizeof(T));
 
         PRINTF("[GatherCustom] coreIdx=%lu blockNum=%lu aligned=%d\n",
                coreIdx, AscendC::GetBlockNum(),
@@ -105,11 +103,9 @@ private:
     __aicore__ inline void CopyTiled(uint64_t srcOffset, uint64_t dstOffset, uint64_t len)
     {
         if ((len * sizeof(T)) % ONE_BLK_BYTES == 0) {
-            // Aligned: TQueBind double-buffer pipeline
             CopyIn(srcOffset, len);
             CopyOut(dstOffset, len);
         } else {
-            // Unaligned: read-modify-write via 32B-aligned DataCopy
             CopyAlignedRMW(srcOffset, dstOffset, len);
         }
     }
@@ -128,7 +124,7 @@ private:
         copyQueue.FreeTensor(local);
     }
 
-    // ---------- Unaligned: RMW with 32B-aligned DataCopy ----------
+    // ---------- Unaligned RMW: TQueBind Alloc/EnQ/DeQ for 32B-aligned GM access ----------
     __aicore__ inline void CopyAlignedRMW(uint64_t srcOffset, uint64_t dstOffset, uint64_t len)
     {
         while (len > 0) {
@@ -142,20 +138,30 @@ private:
             if (srcRemain < copyNow) copyNow = srcRemain;
             if (dstRemain < copyNow) copyNow = dstRemain;
 
-            LocalTensor<T> sBuf = srcBuf.Get<T>();
-            LocalTensor<T> dBuf = dstBuf.Get<T>();
-
+            // Read 32B-aligned source block via TQueBind (GM→VECIN→VECOUT)
+            LocalTensor<T> sBuf = copyQueue.AllocTensor<T>();
             DataCopy(sBuf, xGm[srcAligned], this->numPerBlock);
-            PipeBarrier<PIPE_MTE2>();
-            DataCopy(dBuf, yGm[dstAligned], this->numPerBlock);
-            PipeBarrier<PIPE_MTE2>();
+            copyQueue.EnQue(sBuf);
 
+            // Read 32B-aligned destination block
+            LocalTensor<T> dBuf = copyQueue.AllocTensor<T>();
+            DataCopy(dBuf, yGm[dstAligned], this->numPerBlock);
+            copyQueue.EnQue(dBuf);
+
+            // DeQue both buffers from VECOUT side (data now in UB)
+            LocalTensor<T> sData = copyQueue.DeQue<T>();
+            LocalTensor<T> dData = copyQueue.DeQue<T>();
+
+            // Modify destination block in UB
             for (uint64_t i = 0; i < copyNow; ++i) {
-                dBuf[dstOffInBlock + i] = sBuf[srcOffInBlock + i];
+                dData[dstOffInBlock + i] = sData[srcOffInBlock + i];
             }
 
-            DataCopy(yGm[dstAligned], dBuf, this->numPerBlock);
-            PipeBarrier<PIPE_MTE3>();
+            // Write 32B-aligned destination block back to GM
+            DataCopy(yGm[dstAligned], dData, this->numPerBlock);
+
+            copyQueue.FreeTensor(dData);
+            copyQueue.FreeTensor(sData);
 
             srcOffset += copyNow;
             dstOffset += copyNow;
@@ -169,8 +175,6 @@ private:
     __gm__ int32_t* indicesGm;
     TPipe* pipe;
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
-    TBuf<QuePosition::VECCALC> srcBuf;
-    TBuf<QuePosition::VECCALC> dstBuf;
 
     uint64_t numIndices;
     uint64_t sliceLength;
