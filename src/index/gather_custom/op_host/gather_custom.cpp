@@ -27,13 +27,8 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
 
     uint64_t numIndices = context->GetInputShape(1)->GetStorageShape().GetShapeSize();
 
-    int32_t axis = 0;
-    const auto* axisAttr = context->GetAttrs()->GetAttrPointer<int32_t>(0);
-    if (axisAttr != nullptr) {
-        axis = *axisAttr;
-    }
-
     int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
+    int32_t axis = (xDimNum >= 3) ? 1 : 0;
     if (axis < 0) {
         axis += xDimNum;
     }
@@ -146,8 +141,6 @@ public:
             .DataType({ge::DT_FLOAT16, ge::DT_FLOAT})
             .Format({ge::FORMAT_ND, ge::FORMAT_ND})
             .UnknownShapeFormat({ge::FORMAT_ND, ge::FORMAT_ND});
-        this->Attr("axis").AttrType(OPTIONAL).Int(0);
-
         this->SetInferShape(ge::InferShape).SetInferDataType(ge::InferDataType);
         this->AICore()
             .SetTiling(optiling::TilingFunc)
