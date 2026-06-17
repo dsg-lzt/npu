@@ -16,6 +16,8 @@ namespace optiling {
 BEGIN_TILING_DATA_DEF(GatherCustomTilingData)
   TILING_DATA_FIELD_DEF(uint64_t, numIndices);
   TILING_DATA_FIELD_DEF(uint64_t, sliceLength);
+  TILING_DATA_FIELD_DEF(uint64_t, outerLength);
+  TILING_DATA_FIELD_DEF(uint64_t, gatherDimSize);
   TILING_DATA_FIELD_DEF(uint64_t, sliceLoopNum);
   TILING_DATA_FIELD_DEF(uint64_t, ubSliceLen);
   TILING_DATA_FIELD_DEF(uint64_t, sliceTailLen);

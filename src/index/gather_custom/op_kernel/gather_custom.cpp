@@ -19,6 +19,7 @@ public:
     __aicore__ inline void Init(
         GM_ADDR x, GM_ADDR indices, GM_ADDR y,
         uint64_t numIndices, uint64_t sliceLength,
+        uint64_t outerLength, uint64_t gatherDimSize,
         uint64_t sliceLoopNum, uint64_t ubSliceLen, uint64_t sliceTailLen,
         uint64_t smallCoreIndicesNum, uint64_t bigCoreIndicesNum, uint64_t tailBlockNum,
         TPipe* pipeIn)
@@ -26,6 +27,8 @@ public:
         pipe = pipeIn;
         this->numIndices = numIndices;
         this->sliceLength = sliceLength;
+        this->outerLength = outerLength;
+        this->gatherDimSize = gatherDimSize;
         this->sliceLoopNum = sliceLoopNum;
         this->ubSliceLen = ubSliceLen;
         this->sliceTailLen = sliceTailLen;
@@ -52,33 +55,43 @@ public:
         uint64_t blockNum = AscendC::GetBlockNum();
         PRINTF("[GatherCustom] coreIdx=%lu blockNum=%lu numIndices=%lu\n",
                coreIdx, blockNum, this->numIndices);
-        PRINTF("[GatherCustom] sliceLength=%lu ubSliceLen=%lu sliceLoopNum=%lu sliceTailLen=%lu\n",
-               this->sliceLength, this->ubSliceLen, this->sliceLoopNum, this->sliceTailLen);
+        PRINTF("[GatherCustom] outerLength=%lu gatherDimSize=%lu sliceLength=%lu\n",
+               this->outerLength, this->gatherDimSize, this->sliceLength);
+        PRINTF("[GatherCustom] ubSliceLen=%lu sliceLoopNum=%lu sliceTailLen=%lu\n",
+               this->ubSliceLen, this->sliceLoopNum, this->sliceTailLen);
         PRINTF("[GatherCustom] indicesStart=%lu indicesEnd=%lu myIndicesNum=%lu tailBlockNum=%lu\n",
                this->indicesStart, this->indicesEnd, this->myIndicesNum, tailBlockNum);
     }
 
     __aicore__ inline void Process()
     {
-        for (uint64_t idx = this->indicesStart; idx < this->indicesEnd; ++idx) {
-            int32_t gatherIdx = this->indicesGm[idx];
-            uint64_t srcOffset = gatherIdx * this->sliceLength;
-            uint64_t dstOffset = idx * this->sliceLength;
+        uint64_t groupSize = this->gatherDimSize * this->sliceLength;
+        uint64_t outGroupSize = this->numIndices * this->sliceLength;
 
-            PRINTF("[GatherCustom] idx=%lu gatherIdx=%d srcOffset=%lu dstOffset=%lu\n",
-                   idx, gatherIdx, srcOffset, dstOffset);
+        for (uint64_t outer = 0; outer < this->outerLength; ++outer) {
+            uint64_t outerSrcBase = outer * groupSize;
+            uint64_t outerDstBase = outer * outGroupSize;
 
-            for (uint64_t tile = 0; tile < this->sliceLoopNum; ++tile) {
-                CopyIn(srcOffset + tile * this->ubSliceLen, this->ubSliceLen);
-                CopyOut(dstOffset + tile * this->ubSliceLen, this->ubSliceLen);
-            }
-            if (this->sliceLoopNum * this->ubSliceLen < this->sliceLength) {
-                uint64_t tailLen = this->sliceTailLen;
-                if (this->sliceLoopNum == 0) {
-                    tailLen = this->sliceLength;
+            for (uint64_t idx = this->indicesStart; idx < this->indicesEnd; ++idx) {
+                int32_t gatherIdx = this->indicesGm[idx];
+                uint64_t srcOffset = outerSrcBase + gatherIdx * this->sliceLength;
+                uint64_t dstOffset = outerDstBase + idx * this->sliceLength;
+
+                PRINTF("[GatherCustom] outer=%lu idx=%lu gatherIdx=%d srcOffset=%lu dstOffset=%lu\n",
+                       outer, idx, gatherIdx, srcOffset, dstOffset);
+
+                for (uint64_t tile = 0; tile < this->sliceLoopNum; ++tile) {
+                    CopyIn(srcOffset + tile * this->ubSliceLen, this->ubSliceLen);
+                    CopyOut(dstOffset + tile * this->ubSliceLen, this->ubSliceLen);
                 }
-                CopyIn(srcOffset + this->sliceLoopNum * this->ubSliceLen, tailLen);
-                CopyOut(dstOffset + this->sliceLoopNum * this->ubSliceLen, tailLen);
+                if (this->sliceLoopNum * this->ubSliceLen < this->sliceLength) {
+                    uint64_t tailLen = this->sliceTailLen;
+                    if (this->sliceLoopNum == 0) {
+                        tailLen = this->sliceLength;
+                    }
+                    CopyIn(srcOffset + this->sliceLoopNum * this->ubSliceLen, tailLen);
+                    CopyOut(dstOffset + this->sliceLoopNum * this->ubSliceLen, tailLen);
+                }
             }
         }
         PRINTF("[GatherCustom] coreDone indicesStart=%lu indicesEnd=%lu\n",
@@ -109,6 +122,8 @@ private:
 
     uint64_t numIndices;
     uint64_t sliceLength;
+    uint64_t outerLength;
+    uint64_t gatherDimSize;
     uint64_t sliceLoopNum;
     uint64_t ubSliceLen;
     uint64_t sliceTailLen;
@@ -121,8 +136,10 @@ extern "C" __global__ __aicore__ void gather_custom(
     GM_ADDR x, GM_ADDR indices, GM_ADDR y, GM_ADDR workspace, GM_ADDR tiling)
 {
     GET_TILING_DATA(tiling_data, tiling);
-    PRINTF("[GatherCustom] tiling: numIndices=%lu sliceLength=%lu sliceLoopNum=%lu ubSliceLen=%lu sliceTailLen=%lu\n",
+    PRINTF("[GatherCustom] tiling: numIndices=%lu sliceLength=%lu outerLength=%lu gatherDimSize=%lu\n",
            tiling_data.numIndices, tiling_data.sliceLength,
+           tiling_data.outerLength, tiling_data.gatherDimSize);
+    PRINTF("[GatherCustom] tiling: sliceLoopNum=%lu ubSliceLen=%lu sliceTailLen=%lu\n",
            tiling_data.sliceLoopNum, tiling_data.ubSliceLen, tiling_data.sliceTailLen);
     PRINTF("[GatherCustom] tiling: smallCoreIndices=%lu bigCoreIndices=%lu tailBlockNum=%lu\n",
            tiling_data.smallCoreIndicesNum, tiling_data.bigCoreIndicesNum, tiling_data.tailBlockNum);
@@ -130,6 +147,7 @@ extern "C" __global__ __aicore__ void gather_custom(
     KernelGatherCustom<DTYPE_X> op;
     op.Init(x, indices, y,
             tiling_data.numIndices, tiling_data.sliceLength,
+            tiling_data.outerLength, tiling_data.gatherDimSize,
             tiling_data.sliceLoopNum, tiling_data.ubSliceLen, tiling_data.sliceTailLen,
             tiling_data.smallCoreIndicesNum, tiling_data.bigCoreIndicesNum, tiling_data.tailBlockNum,
             &pipe);

@@ -26,9 +26,27 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     auto coreNum = ascendcPlatform.GetCoreNum();
 
     uint64_t numIndices = context->GetInputShape(1)->GetStorageShape().GetShapeSize();
-    uint64_t inputTotal = context->GetInputShape(0)->GetStorageShape().GetShapeSize();
-    uint64_t inputDim0 = context->GetInputShape(0)->GetStorageShape().GetDim(0);
-    uint64_t sliceLength = (inputDim0 == 0) ? 0 : (inputTotal / inputDim0);
+
+    int32_t axis = 0;
+    const auto* axisAttr = context->GetAttrs()->GetAttrPointer<int32_t>(0);
+    if (axisAttr != nullptr) {
+        axis = *axisAttr;
+    }
+
+    int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
+    if (axis < 0) {
+        axis += xDimNum;
+    }
+
+    uint64_t outerLength = 1;
+    for (int32_t d = 0; d < axis; ++d) {
+        outerLength *= context->GetInputShape(0)->GetStorageShape().GetDim(d);
+    }
+    uint64_t gatherDimSize = context->GetInputShape(0)->GetStorageShape().GetDim(axis);
+    uint64_t sliceLength = 1;
+    for (int32_t d = axis + 1; d < xDimNum; ++d) {
+        sliceLength *= context->GetInputShape(0)->GetStorageShape().GetDim(d);
+    }
 
     uint32_t dataTypeLength = 0;
     ge::TypeUtils::GetDataTypeLength(context->GetInputDesc(0)->GetDataType(), dataTypeLength);
@@ -60,6 +78,8 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
 
     tiling.set_numIndices(numIndices);
     tiling.set_sliceLength(sliceLength);
+    tiling.set_outerLength(outerLength);
+    tiling.set_gatherDimSize(gatherDimSize);
     tiling.set_sliceLoopNum(sliceLoopNum);
     tiling.set_ubSliceLen(ubSliceLen);
     tiling.set_sliceTailLen(sliceTailLen);
@@ -126,6 +146,7 @@ public:
             .DataType({ge::DT_FLOAT16, ge::DT_FLOAT})
             .Format({ge::FORMAT_ND, ge::FORMAT_ND})
             .UnknownShapeFormat({ge::FORMAT_ND, ge::FORMAT_ND});
+        this->Attr("axis").AttrType(OPTIONAL).Int(0);
 
         this->SetInferShape(ge::InferShape).SetInferDataType(ge::InferDataType);
         this->AICore()
