@@ -68,10 +68,23 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
         sliceTailLen = sliceLength - sliceLoopNum * ubSliceLen;
     }
 
-    uint64_t indicesPerCore = numIndices / coreNum;
-    uint64_t tailIndices = numIndices % coreNum;
-    uint64_t smallCoreIndicesNum = indicesPerCore;
-    uint64_t bigCoreIndicesNum = indicesPerCore + (tailIndices > 0 ? 1 : 0);
+    uint64_t indicesPerCore;
+    uint64_t tailIndices;
+    uint64_t smallCoreIndicesNum;
+    uint64_t bigCoreIndicesNum;
+    bool unaligned = (sliceLength * dataTypeLength % BLOCK_SIZE != 0);
+    if (unaligned) {
+        coreNum = 1;
+        indicesPerCore = numIndices;
+        tailIndices = 0;
+        smallCoreIndicesNum = numIndices;
+        bigCoreIndicesNum = numIndices;
+    } else {
+        indicesPerCore = numIndices / coreNum;
+        tailIndices = numIndices % coreNum;
+        smallCoreIndicesNum = indicesPerCore;
+        bigCoreIndicesNum = indicesPerCore + (tailIndices > 0 ? 1 : 0);
+    }
 
     tiling.set_numIndices(numIndices);
     tiling.set_sliceLength(sliceLength);

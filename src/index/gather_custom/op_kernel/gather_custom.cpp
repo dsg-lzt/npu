@@ -48,17 +48,21 @@ public:
 
         xGm.SetGlobalBuffer((__gm__ T*)x);
         yGm.SetGlobalBuffer((__gm__ T*)y);
-        xGmU8.SetGlobalBuffer((__gm__ uint8_t*)x);
-        yGmU8.SetGlobalBuffer((__gm__ uint8_t*)y);
         this->indicesGm = (__gm__ int32_t*)indices;
 
-        pipe->InitBuffer(copyQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
+        this->numPerBlock = ONE_BLK_BYTES / sizeof(T);
 
-        PRINTF("[GatherCustom] coreIdx=%lu blockNum=%lu\n", coreIdx, AscendC::GetBlockNum());
+        pipe->InitBuffer(copyQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
+        pipe->InitBuffer(srcBuf, this->numPerBlock * sizeof(T));
+        pipe->InitBuffer(dstBuf, this->numPerBlock * sizeof(T));
+
+        PRINTF("[GatherCustom] coreIdx=%lu blockNum=%lu aligned=%d\n",
+               coreIdx, AscendC::GetBlockNum(),
+               (sliceLength * sizeof(T) % ONE_BLK_BYTES == 0) ? 1 : 0);
         PRINTF("[GatherCustom] outerLength=%lu gatherDimSize=%lu sliceLength=%lu\n",
                this->outerLength, this->gatherDimSize, this->sliceLength);
-        PRINTF("[GatherCustom] ubSliceLen=%lu sliceLoopNum=%lu sliceTailLen=%lu\n",
-               this->ubSliceLen, this->sliceLoopNum, this->sliceTailLen);
+        PRINTF("[GatherCustom] ubSliceLen=%lu sliceLoopNum=%lu sliceTailLen=%lu numPerBlock=%lu\n",
+               this->ubSliceLen, this->sliceLoopNum, this->sliceTailLen, this->numPerBlock);
         PRINTF("[GatherCustom] indicesStart=%lu indicesEnd=%lu myIndicesNum=%lu\n",
                this->indicesStart, this->indicesEnd, this->myIndicesNum);
     }
@@ -78,14 +82,14 @@ public:
                 uint64_t dstBase = outerDstBase + idx * this->sliceLength;
 
                 for (uint64_t tile = 0; tile < this->sliceLoopNum; ++tile) {
-                    CopyData(srcBase + tile * this->ubSliceLen,
-                             dstBase + tile * this->ubSliceLen,
-                             this->ubSliceLen);
+                    CopyTiled(srcBase + tile * this->ubSliceLen,
+                              dstBase + tile * this->ubSliceLen,
+                              this->ubSliceLen);
                 }
                 if (this->sliceTailLen > 0) {
-                    CopyData(srcBase + this->sliceLoopNum * this->ubSliceLen,
-                             dstBase + this->sliceLoopNum * this->ubSliceLen,
-                             this->sliceTailLen);
+                    CopyTiled(srcBase + this->sliceLoopNum * this->ubSliceLen,
+                              dstBase + this->sliceLoopNum * this->ubSliceLen,
+                              this->sliceTailLen);
                 }
             }
         }
@@ -93,25 +97,25 @@ public:
     }
 
 private:
-    __aicore__ inline void CopyData(uint64_t srcOffset, uint64_t dstOffset, uint64_t len)
+    __aicore__ inline void CopyTiled(uint64_t srcOffset, uint64_t dstOffset, uint64_t len)
     {
-        uint64_t lenBytes = len * sizeof(T);
-        if (lenBytes % ONE_BLK_BYTES == 0) {
+        if ((len * sizeof(T)) % ONE_BLK_BYTES == 0) {
+            // Aligned: TQueBind double-buffer pipeline
             CopyIn(srcOffset, len);
             CopyOut(dstOffset, len);
         } else {
-            CopyInPad(srcOffset, len);
-            CopyOutPad(dstOffset, len);
+            // Unaligned: read-modify-write via 32B-aligned DataCopy
+            CopyAlignedRMW(srcOffset, dstOffset, len);
         }
     }
 
+    // ---------- Aligned: TQueBind pipeline ----------
     __aicore__ inline void CopyIn(uint64_t offset, uint64_t len)
     {
         LocalTensor<T> local = copyQueue.AllocTensor<T>();
         DataCopy(local, xGm[offset], len);
         copyQueue.EnQue(local);
     }
-
     __aicore__ inline void CopyOut(uint64_t offset, uint64_t len)
     {
         LocalTensor<T> local = copyQueue.DeQue<T>();
@@ -119,43 +123,49 @@ private:
         copyQueue.FreeTensor(local);
     }
 
-    __aicore__ inline void CopyInPad(uint64_t offset, uint64_t len)
+    // ---------- Unaligned: RMW with 32B-aligned DataCopy ----------
+    __aicore__ inline void CopyAlignedRMW(uint64_t srcOffset, uint64_t dstOffset, uint64_t len)
     {
-        LocalTensor<T> local = copyQueue.AllocTensor<T>();
-        auto dstU8 = local.template ReinterpretCast<uint8_t>();
-        DataCopyExtParams params;
-        params.blockCount = 1;
-        params.blockLen = static_cast<uint32_t>(len * sizeof(T));
-        params.srcStride = 0;
-        params.dstStride = 0;
-        params.rsv = 0;
-        DataCopyPadExtParams<uint8_t> padParams(false, 0, 0, 0);
-        DataCopyPad(dstU8, xGmU8[offset * sizeof(T)], params, padParams);
-        copyQueue.EnQue(local);
-    }
+        while (len > 0) {
+            uint64_t srcAligned = (srcOffset / this->numPerBlock) * this->numPerBlock;
+            uint64_t dstAligned = (dstOffset / this->numPerBlock) * this->numPerBlock;
+            uint64_t srcOffInBlock = srcOffset - srcAligned;
+            uint64_t dstOffInBlock = dstOffset - dstAligned;
+            uint64_t srcRemain = this->numPerBlock - srcOffInBlock;
+            uint64_t dstRemain = this->numPerBlock - dstOffInBlock;
+            uint64_t copyNow = len;
+            if (srcRemain < copyNow) copyNow = srcRemain;
+            if (dstRemain < copyNow) copyNow = dstRemain;
 
-    __aicore__ inline void CopyOutPad(uint64_t offset, uint64_t len)
-    {
-        LocalTensor<T> local = copyQueue.DeQue<T>();
-        auto srcU8 = local.template ReinterpretCast<uint8_t>();
-        DataCopyExtParams params;
-        params.blockCount = 1;
-        params.blockLen = static_cast<uint32_t>(len * sizeof(T));
-        params.srcStride = 0;
-        params.dstStride = 0;
-        params.rsv = 0;
-        DataCopyPad(yGmU8[offset * sizeof(T)], srcU8, params);
-        copyQueue.FreeTensor(local);
+            LocalTensor<T> sBuf = srcBuf.Get<T>();
+            LocalTensor<T> dBuf = dstBuf.Get<T>();
+
+            DataCopy(sBuf, xGm[srcAligned], this->numPerBlock);
+            PipeBarrier<PIPE_MTE2>();
+            DataCopy(dBuf, yGm[dstAligned], this->numPerBlock);
+            PipeBarrier<PIPE_MTE2>();
+
+            for (uint64_t i = 0; i < copyNow; ++i) {
+                dBuf[dstOffInBlock + i] = sBuf[srcOffInBlock + i];
+            }
+
+            DataCopy(yGm[dstAligned], dBuf, this->numPerBlock);
+            PipeBarrier<PIPE_MTE3>();
+
+            srcOffset += copyNow;
+            dstOffset += copyNow;
+            len -= copyNow;
+        }
     }
 
 private:
     GlobalTensor<T> xGm;
     GlobalTensor<T> yGm;
-    GlobalTensor<uint8_t> xGmU8;
-    GlobalTensor<uint8_t> yGmU8;
     __gm__ int32_t* indicesGm;
     TPipe* pipe;
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
+    TBuf<QuePosition::VECCALC> srcBuf;
+    TBuf<QuePosition::VECCALC> dstBuf;
 
     uint64_t numIndices;
     uint64_t sliceLength;
@@ -167,6 +177,7 @@ private:
     uint64_t myIndicesNum;
     uint64_t indicesStart;
     uint64_t indicesEnd;
+    uint64_t numPerBlock;
 };
 
 extern "C" __global__ __aicore__ void gather_custom(
