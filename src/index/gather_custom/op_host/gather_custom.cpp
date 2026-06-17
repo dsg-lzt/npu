@@ -16,6 +16,20 @@
 namespace optiling {
 const uint64_t BLOCK_SIZE = 32;
 
+static int32_t GetAxis(gert::TilingContext* context)
+{
+    int32_t axis = 0;
+    const auto* axisAttr = context->GetAttrs()->GetAttrPointer<int32_t>(0);
+    if (axisAttr != nullptr) {
+        axis = *axisAttr;
+    }
+    int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
+    if (axis < 0) {
+        axis += xDimNum;
+    }
+    return axis;
+}
+
 static ge::graphStatus TilingFunc(gert::TilingContext* context)
 {
     GatherCustomTilingData tiling;
@@ -26,12 +40,8 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     auto coreNum = ascendcPlatform.GetCoreNum();
 
     uint64_t numIndices = context->GetInputShape(1)->GetStorageShape().GetShapeSize();
-
+    int32_t axis = GetAxis(context);
     int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
-    int32_t axis = (xDimNum >= 3) ? 1 : 0;
-    if (axis < 0) {
-        axis += xDimNum;
-    }
 
     uint64_t outerLength = 1;
     for (int32_t d = 0; d < axis; ++d) {
@@ -93,22 +103,39 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
 }
 
 namespace ge {
+static int32_t InferGetAxis(gert::InferShapeContext* context)
+{
+    const auto* axisList = context->GetAttrs()->GetListInt(0);
+    if (axisList != nullptr && axisList->GetSize() > 0) {
+        int32_t axis = static_cast<int32_t>(axisList->GetData()[0]);
+        int32_t xDimNum = context->GetInputShape(0)->GetDimNum();
+        if (axis < 0) {
+            axis += xDimNum;
+        }
+        return axis;
+    }
+    return 0;
+}
+
 static ge::graphStatus InferShape(gert::InferShapeContext* context)
 {
     const auto* xShape = context->GetInputShape(0);
     const auto* idxShape = context->GetInputShape(1);
     auto* yShape = context->GetOutputShape(0);
 
+    int32_t axis = InferGetAxis(context);
     int64_t xDimNum = xShape->GetDimNum();
     int64_t idxDimNum = idxShape->GetDimNum();
-    int64_t yDimNum = xDimNum - 1 + idxDimNum;
 
-    yShape->SetDimNum(yDimNum);
-    for (int64_t i = 0; i < idxDimNum; ++i) {
-        yShape->SetDim(i, idxShape->GetDim(i));
+    yShape->SetDimNum(xDimNum);
+    for (int64_t i = 0; i < axis; ++i) {
+        yShape->SetDim(i, xShape->GetDim(i));
     }
-    for (int64_t i = 0; i < xDimNum - 1; ++i) {
-        yShape->SetDim(idxDimNum + i, xShape->GetDim(i + 1));
+    for (int64_t j = 0; j < idxDimNum; ++j) {
+        yShape->SetDim(axis + j, idxShape->GetDim(j));
+    }
+    for (int64_t i = axis + 1; i < xDimNum; ++i) {
+        yShape->SetDim(idxDimNum + i - 1, xShape->GetDim(i));
     }
     return GRAPH_SUCCESS;
 }
@@ -141,6 +168,8 @@ public:
             .DataType({ge::DT_FLOAT16, ge::DT_FLOAT})
             .Format({ge::FORMAT_ND, ge::FORMAT_ND})
             .UnknownShapeFormat({ge::FORMAT_ND, ge::FORMAT_ND});
+        this->Attr("axis").AttrType(OPTIONAL).Int(0);
+
         this->SetInferShape(ge::InferShape).SetInferDataType(ge::InferDataType);
         this->AICore()
             .SetTiling(optiling::TilingFunc)
