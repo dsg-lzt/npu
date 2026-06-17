@@ -1,43 +1,122 @@
+import torch
+import torch_npu
+from torch_npu.testing.testcase import TestCase, run_tests
+import custom_ops_lib 
+import numpy as np
+import sys  
+import time
 
->>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
+# 测试配置：b=BatchSize, n=原始点数, c=特征通道数, m=收集的点数
+case_data = {
+    'case1': {'b': 1, 'n': 1024, 'c': 3, 'm': 32},
+    'case2': {'b': 4, 'n': 4096, 'c': 64, 'm': 512}
+}
 
-[Trial 1/1]
-Traceback (most recent call last):
-  File "/home/orange/Documents/Gather/test_op.py", line 122, in <module>
-    TestGather().test_gather_operation(sys.argv[1])
-  File "/home/orange/Documents/Gather/test_op.py", line 95, in test_gather_operation
-    output_npu = custom_ops_lib.gather(features_npu, indices_npu)
-RuntimeError: call aclnnGatherCustom failed, detail:[PID: 1179577] 2026-06-17-15:09:12.002.166 AclNN_Parameter_Error(EZ1001): Check executor != nullptr failed
+# 设置测试次数
+NUM_TRIALS = 1
 
-[ERROR] 2026-06-17-15:09:13 (PID:1179577, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
-[WARNING] The specified program cannot exit normally, exitCode:1. Please check your code or make sure that the operation is valid.
-[INFO] Start export data in PROF_000001_20260617150908157_KANJARDJNEONCLEA.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/host" ...
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/host" finished.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0" ...
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0" finished.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_export.py: There is no timeline data to export for "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/host"
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: Start exporting timeline output_file.
-Wed 17 Jun 2026 15:09:22 [INFO] [MSVP] [1180013] msprof_common.py: End exporting timeline output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/mindstudio_profiler_output path.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/host" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_export.py: There is no summary data to export for "/home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/host"
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/device_0.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_common.py: Start exporting summary output_file.
-Wed 17 Jun 2026 15:09:23 [INFO] [MSVP] [1180171] msprof_common.py: End exporting summary output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA/mindstudio_profiler_output path.
-[INFO] Export all data in PROF_000001_20260617150908157_KANJARDJNEONCLEA done.
-[INFO] Start query data in PROF_000001_20260617150908157_KANJARDJNEONCLEA.
-Job Info        Device ID       Dir Name        Collection Time                 Model ID        Iteration Number        Top Time Iteration      Rank ID
+def verify_result_by_values(real_output, golden_output):
+    """
+    直接对比 NPU 和 CPU 收集到的点特征数值是否一致 (Shape: [B, M, C])
+    """
+    real = np.array(real_output)
+    golden = np.array(golden_output)
+    
+    print("real:",real)
+    print("gloden",golden)
+    if real_output.shape != golden_output.shape:
+        print(f"  [ERROR] Shape Mismatch: NPU {real_output.shape} vs CPU {golden_output.shape}")
+        return False
 
-NA                              host            2026-06-17 15:09:08.159240      N/A             N/A                     N/A                     -1     
+    # 计算绝对误差
+    diff = np.abs(real_output - golden_output)
+    max_diff = np.max(diff)
+    mean_diff = np.mean(diff)
+    
+    print(f"  Value Diff: Max={max_diff:.6f}, Mean={mean_diff:.6f}")
+    
+    # 允许浮点数微小误差
+    if max_diff > 1e-4: 
+        print("  [ERROR] Output Value Mismatch!")
+        return False
+        
+    print("  [INFO] Output Value check passed!")
+    return True
 
-NA              0               device_0        2026-06-17 15:09:08.753242      N/A             N/A                     N/A                     -1     
+def cpu_golden_gather(features, indices):
+    """
+    CPU 端 Golden 算子实现
+    输入 features 形状: (B, N, C)
+    输入 indices 形状: (B, M)
+    输出形状: (B, M, C)
+    """
+    b, n, c = features.shape
+    _, m = indices.shape
+    output = np.zeros((b, m, c), dtype=np.float32)
+    
+    for i in range(b):
+        # 顺次提取第 i 个 batch 中对应 indices 的特征
+        output[i] = features[i, indices[i]]
+    return output
 
-[INFO] Query all data in PROF_000001_20260617150908157_KANJARDJNEONCLEA done.
-[INFO] Profiling finished.
-[INFO] Process profiling data complete. Data is saved in /home/orange/Documents/Gather/PROF_000001_20260617150908157_KANJARDJNEONCLEA
+class TestGather(TestCase):
+    def test_gather_operation(self, num):
+        case_key = 'case' + str(num)
+        if case_key not in case_data:
+            print(f"Error: {case_key} not defined.")
+            return
+
+        conf = case_data[case_key]
+        b, n, c, m = conf['b'], conf['n'], conf['c'], conf['m']
+        
+        success_count = 0
+        print(f"\n>>> Running {NUM_TRIALS} trials for {case_key} (B={b}, N={n}, C={c}, M={m})")
+
+        for trial in range(NUM_TRIALS):
+            print(f"\n[Trial {trial+1}/{NUM_TRIALS}]")
+        
+            # 随机生成输入特征 (B, N, C) 和索引 (B, M)
+            features_np = np.random.uniform(-10, 10, (b, n, c)).astype(np.float32)
+            indices_np = np.random.randint(0, n, (b, m)).astype(np.int32)
+
+            # CPU 计算 Golden 结果
+            start_cpu = time.time()
+            golden_out = cpu_golden_gather(features_np, indices_np)
+            cpu_time = time.time() - start_cpu
+
+            # 直接转换并搬移到 NPU (保持 B, N, C 顺序)
+            features_npu = torch.from_numpy(features_np).npu()
+            indices_npu = torch.from_numpy(indices_np).npu()
+            
+            torch.npu.synchronize()
+            start_npu = time.time()
+
+            # 调用自定义的 Gather 算子
+            output_npu = custom_ops_lib.gather(features_npu, indices_npu)
+            
+            torch.npu.synchronize()
+            npu_time = time.time() - start_npu
+
+            # 获取 NPU 结果
+            actual_res = output_npu.cpu().numpy()
+            
+            # 结果校验
+            is_valid = verify_result_by_values(actual_res, golden_out)
+            if is_valid:
+                success_count += 1
+                print(f"  Result: PASS | CPU: {cpu_time:.4f}s | NPU: {npu_time:.4f}s")
+            else:
+                print(f"  Result: FAIL | CPU: {cpu_time:.4f}s | NPU: {npu_time:.4f}s")
+
+        print(f"\n[FINAL REPORT] {case_key}: {success_count}/{NUM_TRIALS} Successes.")
+        if success_count == NUM_TRIALS:
+            print(f"===> {case_key} ALL SUCCESS <===")
+        else:
+            print(f"===> {case_key} FAILED (Some trials failed) <===")
+
+if __name__ == "__main__":
+    torch.npu.set_device(0)
+    if len(sys.argv) < 2:
+        print("Usage: python3 test.py 1")
+    else:
+        TestGather().test_gather_operation(sys.argv[1])
