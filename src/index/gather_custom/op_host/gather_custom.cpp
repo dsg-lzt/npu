@@ -19,8 +19,7 @@ const uint64_t BLOCK_SIZE = 32;
 static int32_t GetAxis(gert::TilingContext* context)
 {
     int32_t xDimNum = context->GetInputShape(0)->GetStorageShape().GetDimNum();
-    int32_t axis = (xDimNum >= 3) ? 1 : 0;
-    return axis;
+    return (xDimNum >= 3) ? 1 : 0;
 }
 
 static ge::graphStatus TilingFunc(gert::TilingContext* context)
@@ -52,25 +51,21 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
         return ge::GRAPH_FAILED;
     }
 
-    bool useScalarCopy = (sliceLength * dataTypeLength <= BLOCK_SIZE);
+    uint64_t minBufLen = BLOCK_SIZE / dataTypeLength;
+    uint64_t ubSliceLen = (ubLength / 4) / dataTypeLength;
+    ubSliceLen = (ubSliceLen / minBufLen) * minBufLen;
+    if (ubSliceLen < minBufLen) {
+        ubSliceLen = minBufLen;
+    }
 
-    uint64_t ubSliceLen = 0;
-    uint64_t sliceLoopNum = 0;
-    uint64_t sliceTailLen = 0;
-    if (!useScalarCopy) {
-        ubSliceLen = (ubLength / 4) / dataTypeLength;
-        ubSliceLen = (ubSliceLen / (BLOCK_SIZE / dataTypeLength)) * (BLOCK_SIZE / dataTypeLength);
-        if (ubSliceLen == 0) {
-            ubSliceLen = BLOCK_SIZE / dataTypeLength;
-        }
-        if (ubSliceLen >= sliceLength) {
-            ubSliceLen = sliceLength;
-            sliceLoopNum = 1;
-            sliceTailLen = sliceLength;
-        } else {
-            sliceLoopNum = sliceLength / ubSliceLen;
-            sliceTailLen = (sliceLength % ubSliceLen == 0) ? ubSliceLen : (sliceLength % ubSliceLen);
-        }
+    uint64_t sliceLoopNum;
+    uint64_t sliceTailLen;
+    if (ubSliceLen >= sliceLength) {
+        sliceLoopNum = 1;
+        sliceTailLen = sliceLength;
+    } else {
+        sliceLoopNum = sliceLength / ubSliceLen;
+        sliceTailLen = sliceLength - sliceLoopNum * ubSliceLen;
     }
 
     uint64_t indicesPerCore = numIndices / coreNum;
@@ -88,8 +83,6 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     tiling.set_smallCoreIndicesNum(smallCoreIndicesNum);
     tiling.set_bigCoreIndicesNum(bigCoreIndicesNum);
     tiling.set_tailBlockNum(tailIndices);
-
-    context->SetTilingKey(useScalarCopy ? 1 : 0);
 
     context->SetBlockDim(coreNum);
     tiling.SaveToBuffer(context->GetRawTilingData()->GetData(), context->GetRawTilingData()->GetCapacity());
