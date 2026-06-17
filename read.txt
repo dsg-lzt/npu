@@ -1,91 +1,166 @@
->>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
+opType=GatherCustom, DumpHead: AIC-0, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=0 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=0 indicesEnd=4 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=0 gatherIdx=777 srcOffset=2386944 dstOffset=0
+[GatherCustom] idx=1 gatherIdx=316 srcOffset=970752 dstOffset=3072
+[GatherCustom] idx=2 gatherIdx=937 srcOffset=2878464 dstOffset=6144
+[GatherCustom] idx=3 gatherIdx=222 srcOffset=681984 dstOffset=9216
+[GatherCustom] coreDone indicesStart=0 indicesEnd=4
+opType=GatherCustom, DumpHead: AIC-1, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=1 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=4 indicesEnd=8 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=4 gatherIdx=125 srcOffset=384000 dstOffset=12288
+[GatherCustom] idx=5 gatherIdx=889 srcOffset=2731008 dstOffset=15360
+[GatherCustom] idx=6 gatherIdx=1022 srcOffset=3139584 dstOffset=18432
+[GatherCustom] idx=7 gatherIdx=577 srcOffset=1772544 dstOffset=21504
+[GatherCustom] coreDone indicesStart=4 indicesEnd=8
+opType=GatherCustom, DumpHead: AIC-2, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=2 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=8 indicesEnd=12 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=8 gatherIdx=184 srcOffset=565248 dstOffset=24576
+[GatherCustom] idx=9 gatherIdx=205 srcOffset=629760 dstOffset=27648
+[GatherCustom] idx=10 gatherIdx=428 srcOffset=1314816 dstOffset=30720
+[GatherCustom] idx=11 gatherIdx=925 srcOffset=2841600 dstOffset=33792
+[GatherCustom] coreDone indicesStart=8 indicesEnd=12
+opType=GatherCustom, DumpHead: AIC-3, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=3 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=12 indicesEnd=16 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=12 gatherIdx=987 srcOffset=3032064 dstOffset=36864
+[GatherCustom] idx=13 gatherIdx=548 srcOffset=1683456 dstOffset=39936
+[GatherCustom] idx=14 gatherIdx=107 srcOffset=328704 dstOffset=43008
+[GatherCustom] idx=15 gatherIdx=35 srcOffset=107520 dstOffset=46080
+[GatherCustom] coreDone indicesStart=12 indicesEnd=16
+opType=GatherCustom, DumpHead: AIC-4, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=4 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=16 indicesEnd=20 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=16 gatherIdx=922 srcOffset=2832384 dstOffset=49152
+[GatherCustom] idx=17 gatherIdx=641 srcOffset=1969152 dstOffset=52224
+[GatherCustom] idx=18 gatherIdx=790 srcOffset=2426880 dstOffset=55296
+[GatherCustom] idx=19 gatherIdx=793 srcOffset=2436096 dstOffset=58368
+[GatherCustom] coreDone indicesStart=16 indicesEnd=20
+opType=GatherCustom, DumpHead: AIC-5, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=5 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=20 indicesEnd=24 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=20 gatherIdx=248 srcOffset=761856 dstOffset=61440
+[GatherCustom] idx=21 gatherIdx=334 srcOffset=1026048 dstOffset=64512
+[GatherCustom] idx=22 gatherIdx=931 srcOffset=2860032 dstOffset=67584
+[GatherCustom] idx=23 gatherIdx=192 srcOffset=589824 dstOffset=70656
+[GatherCustom] coreDone indicesStart=20 indicesEnd=24
+opType=GatherCustom, DumpHead: AIC-6, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=6 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=24 indicesEnd=28 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=24 gatherIdx=114 srcOffset=350208 dstOffset=73728
+[GatherCustom] idx=25 gatherIdx=595 srcOffset=1827840 dstOffset=76800
+[GatherCustom] idx=26 gatherIdx=623 srcOffset=1913856 dstOffset=79872
+[GatherCustom] idx=27 gatherIdx=171 srcOffset=525312 dstOffset=82944
+[GatherCustom] coreDone indicesStart=24 indicesEnd=28
+opType=GatherCustom, DumpHead: AIC-7, CoreType=MIX, block dim=8, total_block_num=8, block_remain_len=1047216, block_initial_space=1048576, rsv=0, magic=5aa5bccd
+CANN Version: 8.3.RC1, TimeStamp: 20251027211954946
+[GatherCustom] tiling: numIndices=32 sliceLength=3072 sliceLoopNum=1 ubSliceLen=3072 sliceTailLen=3072
+[GatherCustom] tiling: smallCoreIndices=4 bigCoreIndices=4 tailBlockNum=0
+[GatherCustom] coreIdx=7 blockNum=8 numIndices=32
+[GatherCustom] sliceLength=3072 ubSliceLen=3072 sliceLoopNum=1 sliceTailLen=3072
+[GatherCustom] indicesStart=28 indicesEnd=32 myIndicesNum=4 tailBlockNum=0
+[GatherCustom] idx=28 gatherIdx=482 srcOffset=1480704 dstOffset=86016
+[GatherCustom] idx=29 gatherIdx=1010 srcOffset=3102720 dstOffset=89088
+[GatherCustom] idx=30 gatherIdx=814 srcOffset=2500608 dstOffset=92160
+[GatherCustom] idx=31 gatherIdx=997 srcOffset=3062784 dstOffset=95232
+[GatherCustom] coreDone indicesStart=28 indicesEnd=32
+real: [[[0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]
+  [0. 0. 0.]]]
+gloden [[[-5.9557223  -9.174507    3.2449923 ]
+  [-7.580457   -6.069085   -7.204004  ]
+  [-8.570411    7.6162786  -7.474865  ]
+  [ 9.488254   -0.38778958  1.1925166 ]
+  [-9.097104   -3.2445993  -9.277649  ]
+  [-6.9548526  -2.9847054  -6.7863955 ]
+  [-9.445817   -3.8673582   8.013947  ]
+  [ 7.963104    0.14522524  1.013066  ]
+  [-6.8765664   7.918672   -8.094712  ]
+  [ 9.432152   -9.544668    7.17728   ]
+  [ 5.2595434   9.879624   -5.582214  ]
+  [ 4.1875205   3.8893988   1.0384307 ]
+  [-8.189964   -9.901067   -8.716237  ]
+  [-7.443829    1.5856111   9.25856   ]
+  [ 6.927269   -0.22539002  5.1652555 ]
+  [ 1.591772   -4.432092   -0.89600855]
+  [ 8.048308   -6.7771664  -8.313354  ]
+  [-0.35077664 -4.825957   -3.7760339 ]
+  [-2.8845198   5.8515005  -9.106883  ]
+  [-9.912342   -2.8582416  -1.6613612 ]
+  [-6.9025183   6.7607727   2.6672773 ]
+  [ 8.143607    9.866792    5.045975  ]
+  [-1.6421251  -3.5285177  -3.7226722 ]
+  [ 8.334771   -1.1281627   1.5947028 ]
+  [-3.022079   -7.772928    7.1512604 ]
+  [-3.3248358   0.14020911 -8.003147  ]
+  [ 4.9889812   5.5901246  -4.662595  ]
+  [ 1.4291573   8.196682    3.4435039 ]
+  [ 7.4738507  -3.7267904   2.0937657 ]
+  [ 9.620645    2.1344235  -5.342076  ]
+  [ 0.5177226  -4.4829574   0.1372047 ]
+  [-1.288781    3.159384    1.1226552 ]]]
+  Value Diff: Max=9.912342, Mean=5.296840
+  [ERROR] Output Value Mismatch!
+  Result: FAIL | CPU: 0.0000s | NPU: 0.4824s
 
-[Trial 1/1]
-Traceback (most recent call last):
-  File "/home/orange/Documents/Gather/test_op.py", line 117, in <module>
-    TestGather().test_gather_operation(sys.argv[1])
-  File "/home/orange/Documents/Gather/test_op.py", line 92, in test_gather_operation
-    torch.npu.synchronize()
-  File "/home/orange/miniconda3/envs/torch_npu/lib/python3.10/site-packages/torch_npu/npu/utils.py", line 72, in synchronize
-    return torch_npu._C._npu_synchronize()
-RuntimeError: npuSynchronizeDevice:torch_npu/csrc/core/npu/NPUStream.cpp:525 NPU function error: AclrtSynchronizeDeviceWithTimeout, error code is 507015
-[ERROR] 2026-06-17-14:35:01 (PID:1151731, Device:0, RankID:-1) ERR00100 PTA call acl api failed
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EZ9999: Inner Error!
-EZ9999[PID: 1151731] 2026-06-17-14:35:01.104.130 (EZ9999):  Kernel task happen error, retCode=0x26, [aicore exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1555]
-        TraceBack (most recent call last):
-       The error from device(0), serial number is 22, there is an error of aicore, core id is 2, error code = 0x800000, dump info: pc start: 0x80012c080011000, current: 0x12c0800114d4, vec error info: 0x1fd7dbfc, mte error info: 0x301805d, ifu error info: 0xff25fd2cee80, ccu error info: 0xf5efd35800529bd7, cube error info: 0xe7, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140000800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 22, there is aicore error, core id is 2, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0xf80000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xcf[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 22, there is an error of aicore, core id is 5, error code = 0x800000, dump info: pc start: 0x80012c080011000, current: 0x12c0800114d8, vec error info: 0xba2ebda, mte error info: 0x301805d, ifu error info: 0x2fffbf9fbf780, ccu error info: 0xf5efd6df0068ffd6, cube error info: 0x13, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140000800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 22, there is aicore error, core id is 5, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x3700000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xe6[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 22, there is an error of aicore, core id is 7, error code = 0x800000, dump info: pc start: 0x80012c080011000, current: 0x12c0800114d8, vec error info: 0x1df9fabd, mte error info: 0x301b05d, ifu error info: 0x2df3fbaf9b780, ccu error info: 0x93d6def7005eedd2, cube error info: 0xe7, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140000800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 22, there is aicore error, core id is 7, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x3700000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0x19[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 22, there is an error of aicore, core id is 8, error code = 0x800000, dump info: pc start: 0x80012c080011000, current: 0x12c0800114d8, vec error info: 0xf4e99eb, mte error info: 0x301b05d, ifu error info: 0x2fc66ffcdda80, ccu error info: 0x69bebbb004edd98, cube error info: 0xe7, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140000800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 22, there is aicore error, core id is 8, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2580000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xcd[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The dha(mata) info from device(0), dha id is 0, dha status 1 info:0x23[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:178]
-       The dha(mata) info from device(0), dha id is 1, dha status 1 info:0x83[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:178]
-       The device(0), core list[0-3], error code is:[FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:105]
-       coreId( 0):        0x800000            0x800000            0x800000            0x800000    [FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:119]
-       [AIC_INFO] after execute:args print end[FUNC:GetError][FILE:stream.cc][LINE:1191]
-       Aicore kernel execute failed, device_id=0, stream_id=4, report_stream_id=4, task_id=2, flip_num=0, fault kernel_name=GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0, fault kernel info ext=none, program id=0, hash=3677386219586417306.[FUNC:GetError][FILE:stream.cc][LINE:1191]
-       rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-       wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-
-
-DEVICE[0] PID[1151731]: 
-EXCEPTION STREAM:
-  Exception info:TGID=1151731, model id=65535, stream id=4, stream phase=3
-  Message info[0]:RTS_HWTS: Aicore exception, slot_id=18, stream_id=4
-    Other info[0]:time=2026-06-17-14:34:57.357.483, function=process_hwts_error_exception, line=646, error code=0x26 
-EXCEPTION STREAM:
-  Exception info:TGID=1151731, model id=65535, stream id=4, stream phase=3
-  Message info[0]:RTS_HWTS: Aicore timeout, slot_id=18, stream_id=4, task_id=2
-    Other info[0]:time=2026-06-17-14:34:57.480.324, function=process_hwts_timeout_exception, line=453, error code=0x25
-[W617 14:35:01.235266679 NPUStream.cpp:545] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 1151731] 2026-06-17-14:35:01.119.478 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeUsedDevices)
-[W617 14:35:01.240069912 NPUStream.cpp:527] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 1151731] 2026-06-17-14:35:01.124.001 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeDevice)
-[WARNING] The specified program cannot exit normally, exitCode:1. Please check your code or make sure that the operation is valid.
-[INFO] Start export data in PROF_000001_20260617143238814_KDBBNJFHEEONQOGA.
-Wed 17 Jun 2026 14:35:10 [INFO] [MSVP] [1153046] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/host" ...
-Wed 17 Jun 2026 14:35:10 [INFO] [MSVP] [1153046] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 14:35:10 [INFO] [MSVP] [1153046] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/host" finished.
-Wed 17 Jun 2026 14:35:10 [INFO] [MSVP] [1153046] msprof_common.py: Start analyzing data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0" ...
-Wed 17 Jun 2026 14:35:10 [INFO] [MSVP] [1153046] msprof_common.py: It may take few minutes, please be patient ...
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_common.py: Analysis data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0" finished.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_export.py: There is no timeline data to export for "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/host"
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_common.py: Start exporting timeline output_file.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153046] msprof_common.py: End exporting timeline output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/mindstudio_profiler_output path.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/host" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_export.py: The data in "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0" has been analyzed. Parsing phase will be skipped.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_export.py: There is no summary data to export for "/home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/host"
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_export.py: All collected data will be exported, path is: /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/device_0.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_common.py: Start exporting summary output_file.
-Wed 17 Jun 2026 14:35:11 [INFO] [MSVP] [1153188] msprof_common.py: End exporting summary output_file.The file is stored in the /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA/mindstudio_profiler_output path.
-[INFO] Export all data in PROF_000001_20260617143238814_KDBBNJFHEEONQOGA done.
-[INFO] Start query data in PROF_000001_20260617143238814_KDBBNJFHEEONQOGA.
-Job Info        Device ID       Dir Name        Collection Time                 Model ID        Iteration Number        Top Time Iteration      Rank ID
-
-NA                              host            2026-06-17 14:32:38.815300      N/A             N/A                     N/A                     -1     
-
-NA              0               device_0        2026-06-17 14:32:39.437886      N/A             N/A                     N/A                     -1     
-
-[INFO] Query all data in PROF_000001_20260617143238814_KDBBNJFHEEONQOGA done.
-[INFO] Profiling finished.
-[INFO] Process profiling data complete. Data is saved in /home/orange/Documents/Gather/PROF_000001_20260617143238814_KDBBNJFHEEONQOGA
+[FINAL REPORT] case1: 0/1 Successes.
+===> case1 FAILED (Some trials failed) <===
