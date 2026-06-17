@@ -256,8 +256,13 @@ extern "C" __global__ __aicore__ void furthest_point_sampling(
 {
     GET_TILING_DATA(tiling_data, tiling);
     KernelFPS<DTYPE_X, int32_t> op;
-    op.Init(x, tmp, y, tiling_data.N, tiling_data.npoint, tiling_data.b_num,
-            tiling_data.remain, tiling_data.block_size, tiling_data.idx_size,
-            tiling_data.length);
+    op.Init(x, tmp, y,
+            static_cast<uint32_t>(tiling_data.N),
+            static_cast<uint32_t>(tiling_data.npoint),
+            static_cast<uint32_t>(tiling_data.b_num),
+            static_cast<uint32_t>(tiling_data.remain),
+            static_cast<uint32_t>(tiling_data.block_size),
+            static_cast<uint32_t>(tiling_data.idx_size),
+            static_cast<uint32_t>(tiling_data.length));
     op.Process();
 }

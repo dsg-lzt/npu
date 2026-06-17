@@ -19,7 +19,7 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     uint32_t N = x1_shape->GetStorageShape().GetDim(2);
     uint32_t npoint = *context->GetAttrs()->GetInt(0);
 
-    uint32_t sizeofdatatype;
+    uint64_t sizeofdatatype;
     auto dt = context->GetInputTensor(0)->GetDataType();
     if (dt == ge::DT_FLOAT16) {
         sizeofdatatype = 2;
@@ -31,24 +31,24 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     aivNum = (aivNum <= B) ? aivNum : B;
     aivNum = aivNum >= 1 ? aivNum : 1;
 
-    uint32_t b_num = B / aivNum;
-    uint32_t remain = B - aivNum * b_num;
+    uint64_t b_num = B / aivNum;
+    uint64_t remain = B - aivNum * b_num;
 
-    uint32_t idx_size = (npoint + 7) / 8 * 8;
+    uint64_t idx_size = (npoint + 7) / 8 * 8;
     uint64_t ubSize;
     ascendcPlatform.GetCoreMemSize(platform_ascendc::CoreMemType::UB, ubSize);
 
-    uint32_t ALIGN_NUM = BLOCK_SIZE / sizeofdatatype;
-    uint32_t tiling_size =
+    uint64_t ALIGN_NUM = BLOCK_SIZE / sizeofdatatype;
+    uint64_t tiling_size =
         ((ubSize - idx_size * 4) / BLOCK_SIZE / BUFFER_NUM) / localtensor_NUM;
     tiling_size =
         tiling_size <= 8 ? tiling_size : tiling_size / 8 * 8;
-    uint32_t block_size = tiling_size * ALIGN_NUM;
+    uint64_t block_size = tiling_size * ALIGN_NUM;
 
     block_size =
         block_size < N ? block_size : (N + 7) / 8 * 8;
 
-    uint32_t length = N / block_size;
+    uint64_t length = N / block_size;
     length = N % block_size == 0 ? length : length + 1;
 
     tiling.set_N(N);
