@@ -48,6 +48,14 @@ public:
         this->indicesGm = (__gm__ int32_t*)indices;
 
         pipe->InitBuffer(copyQueue, BUFFER_NUM, this->ubSliceLen * sizeof(T));
+
+        uint64_t blockNum = AscendC::GetBlockNum();
+        PRINTF("[GatherCustom] coreIdx=%lu blockNum=%lu numIndices=%lu\n",
+               coreIdx, blockNum, this->numIndices);
+        PRINTF("[GatherCustom] sliceLength=%lu ubSliceLen=%lu sliceLoopNum=%lu sliceTailLen=%lu\n",
+               this->sliceLength, this->ubSliceLen, this->sliceLoopNum, this->sliceTailLen);
+        PRINTF("[GatherCustom] indicesStart=%lu indicesEnd=%lu myIndicesNum=%lu tailBlockNum=%lu\n",
+               this->indicesStart, this->indicesEnd, this->myIndicesNum, tailBlockNum);
     }
 
     __aicore__ inline void Process()
@@ -56,6 +64,9 @@ public:
             int32_t gatherIdx = this->indicesGm[idx];
             uint64_t srcOffset = gatherIdx * this->sliceLength;
             uint64_t dstOffset = idx * this->sliceLength;
+
+            PRINTF("[GatherCustom] idx=%lu gatherIdx=%d srcOffset=%lu dstOffset=%lu\n",
+                   idx, gatherIdx, srcOffset, dstOffset);
 
             for (uint64_t tile = 0; tile < this->sliceLoopNum; ++tile) {
                 CopyIn(srcOffset + tile * this->ubSliceLen, this->ubSliceLen);
@@ -70,6 +81,8 @@ public:
                 CopyOut(dstOffset + this->sliceLoopNum * this->ubSliceLen, tailLen);
             }
         }
+        PRINTF("[GatherCustom] coreDone indicesStart=%lu indicesEnd=%lu\n",
+               this->indicesStart, this->indicesEnd);
     }
 
 private:
@@ -108,6 +121,11 @@ extern "C" __global__ __aicore__ void gather_custom(
     GM_ADDR x, GM_ADDR indices, GM_ADDR y, GM_ADDR workspace, GM_ADDR tiling)
 {
     GET_TILING_DATA(tiling_data, tiling);
+    PRINTF("[GatherCustom] tiling: numIndices=%lu sliceLength=%lu sliceLoopNum=%lu ubSliceLen=%lu sliceTailLen=%lu\n",
+           tiling_data.numIndices, tiling_data.sliceLength,
+           tiling_data.sliceLoopNum, tiling_data.ubSliceLen, tiling_data.sliceTailLen);
+    PRINTF("[GatherCustom] tiling: smallCoreIndices=%lu bigCoreIndices=%lu tailBlockNum=%lu\n",
+           tiling_data.smallCoreIndicesNum, tiling_data.bigCoreIndicesNum, tiling_data.tailBlockNum);
     TPipe pipe;
     KernelGatherCustom<DTYPE_X> op;
     op.Init(x, indices, y,
