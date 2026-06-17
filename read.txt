@@ -120,3 +120,74 @@ if __name__ == "__main__":
         print("Usage: python3 test.py 1")
     else:
         TestGather().test_gather_operation(sys.argv[1])
+
+/**
+*
+* Copyright (C) 2024. Huawei Technologies Co., Ltd. All rights reserved.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+#include <torch/extension.h>
+#include <torch/csrc/autograd/custom_function.h>
+#include "../common/pytorch_npu_helper.hpp"
+#include "torch_npu/csrc/framework/utils/OpAdapter.h"
+
+using namespace at;
+
+// 修改为：接收特征张量 x [B, N, C] 和索引张量 indices [B, M]
+at::Tensor my_op_impl_npu(const at::Tensor& x, const at::Tensor& indices) {
+    
+    // 1. 获取输入维度
+    // x: [B, N, C], indices: [B, M]
+    int64_t B = x.size(0);
+    int64_t M = indices.size(1);
+    int64_t C = x.size(2);
+
+    // 2. 创建输出张量 [B, M, C]，数据类型和设备与输入 x 保持一致
+    auto device = x.device();
+    at::Tensor result = at::empty({B, M, C}, x.options());
+
+    // 3. 确保输入张量在显存中连续排列
+    auto x_contig = x.is_contiguous() ? x : x.contiguous();
+    auto indices_contig = indices.is_contiguous() ? indices : indices.contiguous();
+
+    // 4. 执行 NPU 算子
+    // 使用 EXEC_NPU_CMD 自动处理编译生成的 aclnnGatherCustom 接口
+    // 传参顺序通常严格对应：输入特征, 索引, 输出结果
+    EXEC_NPU_CMD(aclnnGatherCustom, x_contig, indices_contig, result);
+
+    return result;
+}
+
+// --- 对应的注册部分修改 ---
+
+// 修改 my_op 的输入输出签名，改为接收两个 Tensor，返回一个 Tensor
+TORCH_LIBRARY(myops, m) {
+    m.def("my_op(Tensor x, Tensor indices) -> Tensor");
+}
+
+// 绑定实现
+TORCH_LIBRARY_IMPL(myops, PrivateUse1, m) {
+    m.impl("my_op", &my_op_impl_npu);
+}
+
+// 暴露给 Python 的接口，将名称从 furthest_point_sampling 改为 gather
+PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
+    m.def("gather", &my_op_impl_npu, "Custom Gather Operation");
+}
+
+
+>>> Running 1 trials for case1 (B=1, N=1024, C=3, M=32)
+
+[Trial 1/1]
+Traceback (most recent call last):
+  File "/home/orange/Documents/Gather/test_op.py", line 122, in <module>
+    TestGather().test_gather_operation(sys.argv[1])
+  File "/home/orange/Documents/Gather/test_op.py", line 95, in test_gather_operation
+    output_npu = custom_ops_lib.gather(features_npu, indices_npu)
+RuntimeError: call aclnnGatherCustom failed, detail:[PID: 1183728] 2026-06-17-15:19:51.832.101 AclNN_Parameter_Error(EZ1001): Check executor != nullptr failed
+
+[ERROR] 2026-06-17-15:19:53 (PID:1183728, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[WARNING] The specified program cannot exit normally, exitCode:1. Please check your code or make sure that the operation is valid.
