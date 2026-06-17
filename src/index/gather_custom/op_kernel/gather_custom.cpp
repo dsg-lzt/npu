@@ -152,9 +152,25 @@ private:
             LocalTensor<T> sData = copyQueue.DeQue<T>();
             LocalTensor<T> dData = copyQueue.DeQue<T>();
 
+            if (srcOffset < 100 && dstOffset < 100) {
+                PRINTF("[RMW] srcAligned=%lu dstAligned=%lu srcOff=%lu dstOff=%lu copyNow=%lu\n",
+                       srcAligned, dstAligned, srcOffInBlock, dstOffInBlock, copyNow);
+                PRINTF("[RMW] sData[%lu]=%f sData[%lu]=%f dData[%lu]=%f\n",
+                       srcOffInBlock, (double)sData[srcOffInBlock],
+                       srcOffInBlock + copyNow - 1, (double)sData[srcOffInBlock + copyNow - 1],
+                       dstOffInBlock, (double)dData[dstOffInBlock]);
+            }
+
             // Modify destination block in UB
             for (uint64_t i = 0; i < copyNow; ++i) {
                 dData[dstOffInBlock + i] = sData[srcOffInBlock + i];
+            }
+            PipeBarrier<PIPE_ALL>();
+
+            if (srcOffset < 100 && dstOffset < 100) {
+                PRINTF("[RMW] after mod: dData[%lu]=%f sData[%lu]=%f\n",
+                       dstOffInBlock, (double)dData[dstOffInBlock],
+                       srcOffInBlock, (double)sData[srcOffInBlock]);
             }
 
             // Write 32B-aligned destination block back to GM
