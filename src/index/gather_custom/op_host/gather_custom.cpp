@@ -61,7 +61,7 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
     uint64_t sliceLoopNum;
     uint64_t sliceTailLen;
     if (ubSliceLen >= sliceLength) {
-        sliceLoopNum = 1;
+        sliceLoopNum = 0;
         sliceTailLen = sliceLength;
     } else {
         sliceLoopNum = sliceLength / ubSliceLen;
