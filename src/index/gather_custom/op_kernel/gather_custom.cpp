@@ -81,6 +81,11 @@ public:
                 uint64_t srcBase = outerSrcBase + gatherIdx * this->sliceLength;
                 uint64_t dstBase = outerDstBase + idx * this->sliceLength;
 
+                if (idx < 8) {
+                    PRINTF("[GatherCustom] idx=%lu gatherIdx=%d srcBase=%lu dstBase=%lu\n",
+                           idx, gatherIdx, srcBase, dstBase);
+                }
+
                 for (uint64_t tile = 0; tile < this->sliceLoopNum; ++tile) {
                     CopyTiled(srcBase + tile * this->ubSliceLen,
                               dstBase + tile * this->ubSliceLen,
