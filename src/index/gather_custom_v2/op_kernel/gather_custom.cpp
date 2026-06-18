@@ -48,7 +48,7 @@ public:
 
         xGm.SetGlobalBuffer((__gm__ T*)x);
         yGm.SetGlobalBuffer((__gm__ T*)y);
-        this->indicesGmBase = (__gm__ int32_t*)(indices);
+        indicesGm.SetGlobalBuffer((__gm__ int32_t*)(indices));
 
         this->numPerBlock = ONE_BLK_BYTES / sizeof(T);
         this->sliceAligned = (sliceLength * sizeof(T) % ONE_BLK_BYTES == 0);
@@ -97,7 +97,7 @@ private:
                 remaining -= batch;
 
                 LocalTensor<int32_t> idxUb = indicesBuf.Get<int32_t>();
-                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                DataCopy(idxUb, indicesGm[idxBase], batch);
                 PipeBarrier<PIPE_MTE2>();
 
                 for (uint64_t i = 0; i < batch; ++i) {
@@ -152,7 +152,7 @@ private:
                 remaining -= batch;
 
                 LocalTensor<int32_t> idxUb = indicesBuf.Get<int32_t>();
-                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                DataCopy(idxUb, indicesGm[idxBase], batch);
                 PipeBarrier<PIPE_MTE2>();
 
                 for (uint64_t i = 0; i < batch; ++i) {
@@ -207,10 +207,17 @@ private:
     }
 
 private:
+private:
     GlobalTensor<T> xGm;
     GlobalTensor<T> yGm;
-    __gm__ int32_t* indicesGmBase;
+    GlobalTensor<int32_t> indicesGm;
     TPipe* pipe;
+
+    // Aligned path
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
+
+    // Unaligned path (RMW)
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
 
     // Aligned path
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
