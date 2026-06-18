@@ -1,73 +1,559 @@
-features shape torch.Size([1, 3, 210000])
-idx shape torch.Size([1, 2048])
-features type torch.float32
-idx type torch.int32
-features shape torch.Size([1, 256, 210000])
-idx shape torch.Size([1, 2048])
-features type torch.float32
-idx type torch.int32
-R306 /home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/cad_model/box_v5/R306/model.obj
-[W618 11:23:08.800129648 CopyKernelOpApi.cpp:57] Warning: EZ9999: Inner Error!
-EZ9999[PID: 1492091] 2026-06-18-11:23:06.882.294 (EZ9999):  Kernel task happen error, retCode=0x26, [aicore exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1555]
-        TraceBack (most recent call last):
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 0, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c08001650c, vec error info: 0x1b3bf18e, mte error info: 0x3000074, ifu error info: 0x2f7fbb889fe80, ccu error info: 0xaa7ffc5d0067e2a0, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 0, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x780000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xaf[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 1, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c080016954, vec error info: 0x17f0e7bf, mte error info: 0x3000074, ifu error info: 0x3ddf6d3d39080, ccu error info: 0xbdfdbb9f006ffff6, cube error info: 0x19, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 1, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x980000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xcd[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 2, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c080016954, vec error info: 0x1fd7dbfc, mte error info: 0x3000074, ifu error info: 0xff25fd2cee80, ccu error info: 0xf5efd35800529bd7, cube error info: 0x19, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 2, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0xf80000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xcf[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 3, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c080016950, vec error info: 0x1479d23d, mte error info: 0x3080074, ifu error info: 0x1d77eab79a900, ccu error info: 0xdbfddfe40059dcdf, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 3, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2680000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xfd[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 4, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c08001650c, vec error info: 0x753b1bb, mte error info: 0x3000074, ifu error info: 0x2e7be5b7f7b80, ccu error info: 0xcff4abbd006fddff, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 4, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2600000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0x4f[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 7, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c080016950, vec error info: 0x1df9fabd, mte error info: 0x3080074, ifu error info: 0x2df3fbaf9b780, ccu error info: 0x93d6def7005eedd2, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 7, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x3700000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0x19[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 8, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c080016954, vec error info: 0xf4e99eb, mte error info: 0x3000074, ifu error info: 0x2fc66ffcdda80, ccu error info: 0x69bebbb004edd98, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 8, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2580000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xcd[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The error from device(0), serial number is 26, there is an error of aicore, core id is 9, error code = 0x800000, dump info: pc start: 0x80012c080016000, current: 0x12c08001650c, vec error info: 0x410949f, mte error info: 0x3000074, ifu error info: 0x2f9bfff65ff80, ccu error info: 0x9373fbbf004cdffb, cube error info: 0x35, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c140057800, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:46]
-       The extend info from device(0), serial number is 26, there is aicore error, core id is 9, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x3580000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0x6c[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:77]
-       The dha(mata) info from device(0), dha id is 0, dha status 1 info:0x23[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:178]
-       The dha(mata) info from device(0), dha id is 1, dha status 1 info:0x3[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:178]
-       The device(0), core list[0-7], error code is:[FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:105]
-       coreId( 0):        0x800000            0x800000            0x800000            0x800000    [FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:105]
-       coreId( 4):        0x800000            0x800000            0x800000            0x800000    [FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:119]
-       [AIC_INFO] after execute:args print end[FUNC:GetError][FILE:stream.cc][LINE:1191]
-       Aicore kernel execute failed, device_id=0, stream_id=9, report_stream_id=9, task_id=36190, flip_num=0, fault kernel_name=GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0, fault kernel info ext=none, program id=31, hash=7239383677819492412.[FUNC:GetError][FILE:stream.cc][LINE:1191]
-       rtStreamSynchronize execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-       synchronize stream failed, runtime result = 507015[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
+Custom_acc258cd277f5d0771d8cc08d18886eb_1564752_kernel.cpp:6:
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:100:17: error: no matching function for call to 'DataCopy'
+                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                ^~~~~~~~
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:40:1: note: candidate template ignored: couldn't infer
+      template argument 'config'
+DataCopy(const T& dst, const U& src, const Coord& coord)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:40:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void __inout_pipe__(MTE2) DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:90:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:126:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:151:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:206:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:278:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:489:45: note: candidate template ignored: could not
+      match 'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:513:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:537:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src, const uint32_t count)
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:580:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:740:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:753:24: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:29:1: note: candidate function template not viable:
+      requires 2 arguments, but 3 were provided
+DataCopy(const T& dst, const U& src)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:633:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:656:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:679:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:794:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:839:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:851:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:863:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:875:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:887:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:368:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T> &dst, const GlobalTensor<T> &src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:429:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T> &dst, const LocalTensor<T> &src,
+                                            ^
+In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_1564752_kernel.cpp:6:
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:155:17: error: no matching function for call to 'DataCopy'
+                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                ^~~~~~~~
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:40:1: note: candidate template ignored: couldn't infer
+      template argument 'config'
+DataCopy(const T& dst, const U& src, const Coord& coord)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:40:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void __inout_pipe__(MTE2) DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:90:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:126:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:151:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:206:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:278:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:489:45: note: candidate template ignored: could not
+      match 'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:513:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:537:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src, const uint32_t count)
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:580:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:740:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:753:24: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:29:1: note: candidate function template not viable:
+      requires 2 arguments, but 3 were provided
+DataCopy(const T& dst, const U& src)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:633:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:656:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:679:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:794:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:839:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:851:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:863:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:875:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:887:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:368:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T> &dst, const GlobalTensor<T> &src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:429:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T> &dst, const LocalTensor<T> &src,
+                                            ^
+2 errors generated.
+make[5]: *** [GatherCustom_acc258cd277f5d0771d8cc08d18886eb1564752.mk:4：GatherCustom_acc258cd277f5d0771d8cc08d18886eb1564752_0] 错误 1
+In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_1564751_kernel.cpp:6:
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:100:17: error: no matching function for call to 'DataCopy'
+                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                ^~~~~~~~
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:40:1: note: candidate template ignored: couldn't infer
+      template argument 'config'
+DataCopy(const T& dst, const U& src, const Coord& coord)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:40:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void __inout_pipe__(MTE2) DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:90:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:126:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:151:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:206:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:278:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:489:45: note: candidate template ignored: could not
+      match 'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:513:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:537:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src, const uint32_t count)
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:580:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:740:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:753:24: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:29:1: note: candidate function template not viable:
+      requires 2 arguments, but 3 were provided
+DataCopy(const T& dst, const U& src)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:633:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:656:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:679:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:794:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:839:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:851:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:863:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:875:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:887:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:368:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T> &dst, const GlobalTensor<T> &src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:429:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T> &dst, const LocalTensor<T> &src,
+                                            ^
+In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_1564751_kernel.cpp:6:
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:155:17: error: no matching function for call to 'DataCopy'
+                DataCopy(idxUb, indicesGmBase[idxBase], batch);
+                ^~~~~~~~
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:40:1: note: candidate template ignored: couldn't infer
+      template argument 'config'
+DataCopy(const T& dst, const U& src, const Coord& coord)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:40:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void __inout_pipe__(MTE2) DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:90:45: note: candidate template ignored: could not match
+      'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:126:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:151:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:206:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:278:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:489:45: note: candidate template ignored: could not
+      match 'GlobalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:513:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:537:24: note: candidate template ignored: could not
+      match 'LocalTensor<T>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src, const uint32_t count)
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:580:45: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:740:24: note: candidate template ignored: could not
+      match 'LocalTensor<U>' against '__gm__ int32_t' (aka '__gm__ int')
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:753:24: note: candidate template ignored: could not
+      match 'GlobalTensor' against 'LocalTensor'
+__aicore__ inline void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/acte_impl/kernel_acte_data_copy_impl.h:29:1: note: candidate function template not viable:
+      requires 2 arguments, but 3 were provided
+DataCopy(const T& dst, const U& src)
+^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:633:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T>& dst, const GlobalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:656:45: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T>& dst, const LocalTensor<T>& src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:679:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T> &dst, const LocalTensor<T> &src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:794:24: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline void DataCopy(const LocalTensor<T>& dst, const LocalTensor<U>& src,
+                       ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:839:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:851:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:863:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:875:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:887:42: note: candidate function template not viable:
+      requires 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(V) void DataCopy(const LocalTensor<T> &dst, const LocalTensor<U> &src,
+                                         ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:368:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE2) void DataCopy(const LocalTensor<T> &dst, const GlobalTensor<T> &src,
+                                            ^
+/usr/local/Ascend/ascend-toolkit/8.3.RC1/x86_64-linux/tikcpp/tikcfw/impl/kernel_operator_data_copy_intf_impl.h:429:45: note: candidate function template not viable:
+      requires at least 4 arguments, but 3 were provided
+__aicore__ inline __inout_pipe__(MTE3) void DataCopy(const GlobalTensor<T> &dst, const LocalTensor<T> &src,
+                                            ^
+2 errors generated.
+make[5]: *** [GatherCustom_278177dd66808faeafe8f201ce476e041564751.mk:4：GatherCustom_278177dd66808faeafe8f201ce476e041564751_0] 错误 1
+[INFO] RUNTIME(1564752,python3):2026-06-18-14:14:56.446.644 [task_fail_callback_data_manager.cc:58] 1564752 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(1564752,python3):2026-06-18-14:14:56.464.235 [msprof_callback_impl.cpp:359] >>> (tid:1564752) Started to register profiling ctrl callback.
+[EVENT] PROFILING(1564752,python3):2026-06-18-14:14:56.464.308 [msprof_callback_impl.cpp:366] >>> (tid:1564752) Started to register profiling hash id callback.
+[INFO] PROFILING(1564752,python3):2026-06-18-14:14:56.464.311 [prof_atls_plugin.cpp:115] (tid:1564752) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(1564752,python3):2026-06-18-14:14:56.464.314 [msprof_callback_impl.cpp:373] >>> (tid:1564752) Started to register profiling enable host freq callback.
+[INFO] PROFILING(1564752,python3):2026-06-18-14:14:56.464.315 [prof_atls_plugin.cpp:115] (tid:1564752) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(1564752,python3):2026-06-18-14:14:56.464.317 [msprof_callback_impl.cpp:380] >>> (tid:1564752) Started to register profiling typeId callback.
+[INFO] PROFILING(1564752,python3):2026-06-18-14:14:56.464.318 [prof_atls_plugin.cpp:115] (tid:1564752) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(1564752,python3):2026-06-18-14:14:56.496.461 [prof_atls_plugin.cpp:215] (tid:1564752) Module[61] register callback of ctrl handle.
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.805.416 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.805.619 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.624 [opc_common.py:231][_log_error] Traceback (most recent call last):
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
+    json_file_path = self.__call_op()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 148, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
+    return func(*args, **kwargs)
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.637 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+    return func(*args, **kwargs)
+  File "/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/dynamic/GatherCustom.py", line 222, in gather_custom
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
+    _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.645 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+    fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
+    CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
+    CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.652 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
 
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.663 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_acc258cd277f5d0771d8cc08d18886eb.
+[ERROR] TBE(1564752,python3):2026-06-18-14:14:57.806.746 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+].
+Opc tool start working now, please wait for a moment.
+[2026-6-18 6:14:57] [ERROR] [ascend310p] GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
 
-DEVICE[0] PID[1492091]: 
-EXCEPTION STREAM:
-  Exception info:TGID=1492091, model id=65535, stream id=9, stream phase=SCHEDULE
-  Message info[0]:RTS_HWTS: Aicore exception, slot_id=25, stream_id=9
-    Other info[0]:time=2026-06-18-11:23:05.797.999, function=process_hwts_error_exception, line=646, error code=0x26 (function copy_between_host_and_device_opapi)
+[INFO] RUNTIME(1564752,python3):2026-06-18-14:14:58.314.101 [task_fail_callback_data_manager.cc:63] 1564752 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(1564752,python3):2026-06-18-14:14:58.475.616 [stacktrace_signal.c:194](tid:1564752) unregister all signal handlers, can not capture signal.
+/home/orange/Documents/Gather/Gather/build_out/op_kernel/binary/ascend310p/gather_custom/GatherCustom_acc258cd277f5d0771d8cc08d18886eb.json not generated!
+make[4]: *** [/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/gather_custom.make:5：gather_custom1] 错误 1
+make[4]: *** 正在等待未完成的任务....
+[INFO] RUNTIME(1564751,python3):2026-06-18-14:14:56.504.659 [task_fail_callback_data_manager.cc:58] 1564751 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(1564751,python3):2026-06-18-14:14:56.521.615 [msprof_callback_impl.cpp:359] >>> (tid:1564751) Started to register profiling ctrl callback.
+[EVENT] PROFILING(1564751,python3):2026-06-18-14:14:56.521.689 [msprof_callback_impl.cpp:366] >>> (tid:1564751) Started to register profiling hash id callback.
+[INFO] PROFILING(1564751,python3):2026-06-18-14:14:56.521.693 [prof_atls_plugin.cpp:115] (tid:1564751) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(1564751,python3):2026-06-18-14:14:56.521.695 [msprof_callback_impl.cpp:373] >>> (tid:1564751) Started to register profiling enable host freq callback.
+[INFO] PROFILING(1564751,python3):2026-06-18-14:14:56.521.697 [prof_atls_plugin.cpp:115] (tid:1564751) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(1564751,python3):2026-06-18-14:14:56.521.698 [msprof_callback_impl.cpp:380] >>> (tid:1564751) Started to register profiling typeId callback.
+[INFO] PROFILING(1564751,python3):2026-06-18-14:14:56.521.699 [prof_atls_plugin.cpp:115] (tid:1564751) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(1564751,python3):2026-06-18-14:14:56.553.336 [prof_atls_plugin.cpp:215] (tid:1564751) Module[61] register callback of ctrl handle.
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.873.889 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.082 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.950 [opc_common.py:231][_log_error] Traceback (most recent call last):
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
+    json_file_path = single_op_obj.op_compile()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
+    json_file_path = self.__call_op()
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 148, in __call_op
+    op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
+    return func(*args, **kwargs)
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.960 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+    return func(*args, **kwargs)
+  File "/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/dynamic/GatherCustom.py", line 222, in gather_custom
+    compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
+    _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.967 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+    fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
+    CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
+  File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
+    CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.974 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+    raise Exception("An error occurred during compile phases of {}, msg is {}".\
+Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.874.984 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_278177dd66808faeafe8f201ce476e04.
+[ERROR] TBE(1564751,python3):2026-06-18-14:14:57.875.060 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+].
+Opc tool start working now, please wait for a moment.
+[2026-6-18 6:14:57] [ERROR] [ascend310p] GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+
+[INFO] RUNTIME(1564751,python3):2026-06-18-14:14:58.385.607 [task_fail_callback_data_manager.cc:63] 1564751 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(1564751,python3):2026-06-18-14:14:58.546.519 [stacktrace_signal.c:194](tid:1564751) unregister all signal handlers, can not capture signal.
+/home/orange/Documents/Gather/Gather/build_out/op_kernel/binary/ascend310p/gather_custom/GatherCustom_278177dd66808faeafe8f201ce476e04.json not generated!
+make[4]: *** [/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/gather_custom.make:3：gather_custom0] 错误 1
 Traceback (most recent call last):
-  File "/home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/eai_test.py", line 98, in <module>
-    perception = Perception(config)
-  File "/home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/perception/perception_interface_lingshu.py", line 78, in __init__
-    self.pose_estimator = SAM6DPoseEstimator(
-  File "/home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/submodules/SAM_6D/pose_estimator.py", line 118, in __init__
-    self.load_all_mesh()
-  File "/home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/submodules/SAM_6D/pose_estimator.py", line 194, in load_all_mesh
-    all_tem, all_tem_pts, all_tem_choose = self.get_templates(obj)
-  File "/home/orange/Documents/Lingshu-1130/src/eai_perception/eai_perception/submodules/SAM_6D/pose_estimator.py", line 172, in get_templates
-    all_tem.append(torch.FloatTensor(tem).unsqueeze(0).to(DEVICE))
-RuntimeError: ACL stream synchronize failed, error code:507015
-[W618 11:23:08.804418342 NPUStream.cpp:545] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 1492091] 2026-06-18-11:23:08.690.012 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeUsedDevices)
-[W618 11:23:08.806997793 NPUStream.cpp:527] Warning: NPU warning, error code is 507015[Error]: 
-[Error]: The aicore execution is abnormal. 
-        Rectify the fault based on the error information in the ascend log.
-EH9999: Inner Error!
-        rtDeviceSynchronizeWithTimeout execute failed, reason=[aicore exception][FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:53]
-EH9999[PID: 1492091] 2026-06-18-11:23:08.692.687 (EH9999):  wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:162]
-        TraceBack (most recent call last):
- (function npuSynchronizeDevice)
-[ERROR] 2026-06-18-11:23:10 (PID:1492091, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+  File "/home/orange/Documents/Gather/Gather/cmake/util/ascendc_compile_kernel.py", line 219, in <module>
+    kernel_builder.ascendc_build()
+  File "/home/orange/Documents/Gather/Gather/cmake/util/ascendc_compile_kernel.py", line 162, in ascendc_build
+    raise RuntimeError('Kernel Compilation Error: OpType {} Kernel File {}!'.format(
+RuntimeError: Kernel Compilation Error: OpType GatherCustom Kernel File /home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp!
+gmake[3]: *** [op_kernel/CMakeFiles/GatherCustom_ascend310p.dir/build.make:70：op_kernel/CMakeFiles/GatherCustom_ascend310p] 错误 1
+gmake[2]: *** [CMakeFiles/Makefile2:425：op_kernel/CMakeFiles/GatherCustom_ascend310p.dir/all] 错误 2
+gmake[1]: *** [CMakeFiles/Makefile2:379：op_kernel/CMakeFiles/binary.dir/rule] 错误 2
+gmake: *** [Makefile:293：binary] 错误 2
+Consolidate compiler generated dependencies of target cust_optiling
+[ 41%] Built target ops_info_gen_ascend310p
+[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/gather_custom.cpp.o
+[ 41%] Building CXX object framework/tf_plugin/CMakeFiles/cust_tf_parsers.dir/tensorflow_furthest_point_sampling_plugin.cc.o
+[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 50%] Generating scripts/install.sh, scripts/upgrade.sh
+[ 58%] Generating tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 58%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_gather_custom.cpp.o
+[ 58%] Built target gen_version_info
+[ 75%] Built target cust_optiling
+/home/orange/Documents/Gather/Gather/build_out/autogen /home/orange/Documents/Gather/Gather/build_out/op_kernel/tbe/op_info_cfg/ai_core
+[ 75%] Built target modify_vendor
+[ 75%] Built target optiling_compat
+[INFO] Succed generated /home/orange/Documents/Gather/Gather/build_out/op_kernel/tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 75%] Built target npu_supported_ops
+[ 83%] Linking CXX shared library libcust_opapi.so
+[ 91%] Linking CXX shared library libcust_tf_parsers.so
+[ 91%] Built target cust_opapi
+[ 91%] Built target cust_tf_parsers
+[100%] Linking CXX shared library libcust_opsproto_rt2.0.so
+[100%] Built target cust_op_proto
+Run CPack packaging tool...
+CPack: Create package using External
+CPack: Install projects
+CPack: - Run preinstall target for: opp
+CPack: - Install project: opp []
+CMake Error at /home/orange/Documents/Gather/Gather/build_out/op_kernel/cmake_install.cmake:62 (file):
+  file INSTALL cannot find
+  "/home/orange/Documents/Gather/Gather/build_out/op_kernel/binary/config":
+  No such file or directory.
+Call Stack (most recent call first):
+  /home/orange/Documents/Gather/Gather/build_out/cmake_install.cmake:57 (include)
+
+
+CPack Error: Error when generating package: opp
+gmake: *** [Makefile:71：package] 错误 1
