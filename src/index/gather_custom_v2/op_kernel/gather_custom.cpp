@@ -218,12 +218,6 @@ private:
 
     // Unaligned path (RMW)
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
-
-    // Aligned path
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
-
-    // Unaligned path (RMW)
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
     uint64_t numPerBlock32;
 
     // Indices buffer
