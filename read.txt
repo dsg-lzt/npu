@@ -2,22 +2,9 @@ Compile op info cfg successfully.
 [ 66%] Built target ops_info_gen_ascend310p
 [100%] Linking CXX shared library libcust_opmaster_rt2.0.so
 [100%] Built target cust_optiling
-[ascend310p] Generating GatherCustom_278177dd66808faeafe8f201ce476e04 ...
 [ascend310p] Generating GatherCustom_acc258cd277f5d0771d8cc08d18886eb ...
-In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_1570351_kernel.cpp:6:
-/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:223:67: error: duplicate member 'copyQueue'
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
-                                                                  ^
-/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:217:67: note: previous declaration is here
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
-                                                                  ^
-/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:226:67: error: duplicate member 'rmwQueue'
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
-                                                                  ^
-/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:220:67: note: previous declaration is here
-    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
-                                                                  ^
-In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_1570353_kernel.cpp:6:
+[ascend310p] Generating GatherCustom_278177dd66808faeafe8f201ce476e04 ...
+In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_1571637_kernel.cpp:6:
 /home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:223:67: error: duplicate member 'copyQueue'
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
                                                                   ^
@@ -31,21 +18,34 @@ In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/G
     TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
                                                                   ^
 2 errors generated.
-make[5]: *** [GatherCustom_acc258cd277f5d0771d8cc08d18886eb1570351.mk:4：GatherCustom_acc258cd277f5d0771d8cc08d18886eb1570351_0] 错误 1
+make[5]: *** [GatherCustom_acc258cd277f5d0771d8cc08d18886eb1571637.mk:4：GatherCustom_acc258cd277f5d0771d8cc08d18886eb1571637_0] 错误 1
+In file included from /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_1571639_kernel.cpp:6:
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:223:67: error: duplicate member 'copyQueue'
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
+                                                                  ^
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:217:67: note: previous declaration is here
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> copyQueue;
+                                                                  ^
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:226:67: error: duplicate member 'rmwQueue'
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
+                                                                  ^
+/home/orange/Documents/Gather/Gather/op_kernel/gather_custom.cpp:220:67: note: previous declaration is here
+    TQueBind<QuePosition::VECIN, QuePosition::VECOUT, BUFFER_NUM> rmwQueue;
+                                                                  ^
 2 errors generated.
-make[5]: *** [GatherCustom_278177dd66808faeafe8f201ce476e041570353.mk:4：GatherCustom_278177dd66808faeafe8f201ce476e041570353_0] 错误 1
-[INFO] RUNTIME(1570351,python3):2026-06-18-14:29:32.962.758 [task_fail_callback_data_manager.cc:58] 1570351 TaskFailCallBackManager: Constructor.
-[EVENT] PROFILING(1570351,python3):2026-06-18-14:29:32.979.873 [msprof_callback_impl.cpp:359] >>> (tid:1570351) Started to register profiling ctrl callback.
-[EVENT] PROFILING(1570351,python3):2026-06-18-14:29:32.979.948 [msprof_callback_impl.cpp:366] >>> (tid:1570351) Started to register profiling hash id callback.
-[INFO] PROFILING(1570351,python3):2026-06-18-14:29:32.979.952 [prof_atls_plugin.cpp:115] (tid:1570351) RegisterProfileCallback, callback type is 7
-[EVENT] PROFILING(1570351,python3):2026-06-18-14:29:32.979.954 [msprof_callback_impl.cpp:373] >>> (tid:1570351) Started to register profiling enable host freq callback.
-[INFO] PROFILING(1570351,python3):2026-06-18-14:29:32.979.956 [prof_atls_plugin.cpp:115] (tid:1570351) RegisterProfileCallback, callback type is 8
-[EVENT] PROFILING(1570351,python3):2026-06-18-14:29:32.979.957 [msprof_callback_impl.cpp:380] >>> (tid:1570351) Started to register profiling typeId callback.
-[INFO] PROFILING(1570351,python3):2026-06-18-14:29:32.979.959 [prof_atls_plugin.cpp:115] (tid:1570351) RegisterProfileCallback, callback type is 6
-[INFO] PROFILING(1570351,python3):2026-06-18-14:29:33.010.353 [prof_atls_plugin.cpp:215] (tid:1570351) Module[61] register callback of ctrl handle.
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.242.862 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.243.065 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.091 [opc_common.py:231][_log_error] Traceback (most recent call last):
+make[5]: *** [GatherCustom_278177dd66808faeafe8f201ce476e041571639.mk:4：GatherCustom_278177dd66808faeafe8f201ce476e041571639_0] 错误 1
+[INFO] RUNTIME(1571637,python3):2026-06-18-14:32:56.507.280 [task_fail_callback_data_manager.cc:58] 1571637 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(1571637,python3):2026-06-18-14:32:56.524.421 [msprof_callback_impl.cpp:359] >>> (tid:1571637) Started to register profiling ctrl callback.
+[EVENT] PROFILING(1571637,python3):2026-06-18-14:32:56.524.496 [msprof_callback_impl.cpp:366] >>> (tid:1571637) Started to register profiling hash id callback.
+[INFO] PROFILING(1571637,python3):2026-06-18-14:32:56.524.500 [prof_atls_plugin.cpp:115] (tid:1571637) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(1571637,python3):2026-06-18-14:32:56.524.502 [msprof_callback_impl.cpp:373] >>> (tid:1571637) Started to register profiling enable host freq callback.
+[INFO] PROFILING(1571637,python3):2026-06-18-14:32:56.524.504 [prof_atls_plugin.cpp:115] (tid:1571637) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(1571637,python3):2026-06-18-14:32:56.524.506 [msprof_callback_impl.cpp:380] >>> (tid:1571637) Started to register profiling typeId callback.
+[INFO] PROFILING(1571637,python3):2026-06-18-14:32:56.524.507 [prof_atls_plugin.cpp:115] (tid:1571637) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(1571637,python3):2026-06-18-14:32:56.553.977 [prof_atls_plugin.cpp:215] (tid:1571637) Module[61] register callback of ctrl handle.
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.957.792 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.957.944 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.958.954 [opc_common.py:231][_log_error] Traceback (most recent call last):
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
     json_file_path = single_op_obj.op_compile()
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
@@ -54,45 +54,45 @@ make[5]: *** [GatherCustom_278177dd66808faeafe8f201ce476e041570353.mk:4：Gather
     op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
     return func(*args, **kwargs)
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.099 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.958.968 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
     return func(*args, **kwargs)
   File "/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/dynamic/GatherCustom.py", line 222, in gather_custom
     compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
     _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.104 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.958.976 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
     fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
     CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
     CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.109 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.958.983 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
     raise Exception("An error occurred during compile phases of {}, msg is {}".\
 Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
 
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.116 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_acc258cd277f5d0771d8cc08d18886eb.
-[ERROR] TBE(1570351,python3):2026-06-18-14:29:34.244.172 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.958.994 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_acc258cd277f5d0771d8cc08d18886eb.
+[ERROR] TBE(1571637,python3):2026-06-18-14:32:57.959.078 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
 ].
 Opc tool start working now, please wait for a moment.
-[2026-6-18 6:29:34] [ERROR] [ascend310p] GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
+[2026-6-18 6:32:57] [ERROR] [ascend310p] GatherCustom_acc258cd277f5d0771d8cc08d18886eb ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_1/kernel_meta_GatherCustom_acc258cd277f5d0771d8cc08d18886eb/kernel_meta/GatherCustom_acc258cd277f5d0771d8cc08d18886eb_0.o: No such file or directory
 
-[INFO] RUNTIME(1570351,python3):2026-06-18-14:29:34.686.567 [task_fail_callback_data_manager.cc:63] 1570351 ~TaskFailCallBackManager: Destructor.
-[INFO] ATRACE(1570351,python3):2026-06-18-14:29:34.848.945 [stacktrace_signal.c:194](tid:1570351) unregister all signal handlers, can not capture signal.
+[INFO] RUNTIME(1571637,python3):2026-06-18-14:32:58.508.487 [task_fail_callback_data_manager.cc:63] 1571637 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(1571637,python3):2026-06-18-14:32:58.675.500 [stacktrace_signal.c:194](tid:1571637) unregister all signal handlers, can not capture signal.
 /home/orange/Documents/Gather/Gather/build_out/op_kernel/binary/ascend310p/gather_custom/GatherCustom_acc258cd277f5d0771d8cc08d18886eb.json not generated!
 make[4]: *** [/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/gather_custom.make:5：gather_custom1] 错误 1
 make[4]: *** 正在等待未完成的任务....
-[INFO] RUNTIME(1570353,python3):2026-06-18-14:29:32.980.521 [task_fail_callback_data_manager.cc:58] 1570353 TaskFailCallBackManager: Constructor.
-[EVENT] PROFILING(1570353,python3):2026-06-18-14:29:32.997.371 [msprof_callback_impl.cpp:359] >>> (tid:1570353) Started to register profiling ctrl callback.
-[EVENT] PROFILING(1570353,python3):2026-06-18-14:29:32.997.445 [msprof_callback_impl.cpp:366] >>> (tid:1570353) Started to register profiling hash id callback.
-[INFO] PROFILING(1570353,python3):2026-06-18-14:29:32.997.449 [prof_atls_plugin.cpp:115] (tid:1570353) RegisterProfileCallback, callback type is 7
-[EVENT] PROFILING(1570353,python3):2026-06-18-14:29:32.997.451 [msprof_callback_impl.cpp:373] >>> (tid:1570353) Started to register profiling enable host freq callback.
-[INFO] PROFILING(1570353,python3):2026-06-18-14:29:32.997.452 [prof_atls_plugin.cpp:115] (tid:1570353) RegisterProfileCallback, callback type is 8
-[EVENT] PROFILING(1570353,python3):2026-06-18-14:29:32.997.454 [msprof_callback_impl.cpp:380] >>> (tid:1570353) Started to register profiling typeId callback.
-[INFO] PROFILING(1570353,python3):2026-06-18-14:29:32.997.455 [prof_atls_plugin.cpp:115] (tid:1570353) RegisterProfileCallback, callback type is 6
-[INFO] PROFILING(1570353,python3):2026-06-18-14:29:33.027.453 [prof_atls_plugin.cpp:215] (tid:1570353) Module[61] register callback of ctrl handle.
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.247.382 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.247.530 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.217 [opc_common.py:231][_log_error] Traceback (most recent call last):
+[INFO] RUNTIME(1571639,python3):2026-06-18-14:32:56.448.164 [task_fail_callback_data_manager.cc:58] 1571639 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(1571639,python3):2026-06-18-14:32:56.465.990 [msprof_callback_impl.cpp:359] >>> (tid:1571639) Started to register profiling ctrl callback.
+[EVENT] PROFILING(1571639,python3):2026-06-18-14:32:56.466.068 [msprof_callback_impl.cpp:366] >>> (tid:1571639) Started to register profiling hash id callback.
+[INFO] PROFILING(1571639,python3):2026-06-18-14:32:56.466.071 [prof_atls_plugin.cpp:115] (tid:1571639) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(1571639,python3):2026-06-18-14:32:56.466.074 [msprof_callback_impl.cpp:373] >>> (tid:1571639) Started to register profiling enable host freq callback.
+[INFO] PROFILING(1571639,python3):2026-06-18-14:32:56.466.076 [prof_atls_plugin.cpp:115] (tid:1571639) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(1571639,python3):2026-06-18-14:32:56.466.078 [msprof_callback_impl.cpp:380] >>> (tid:1571639) Started to register profiling typeId callback.
+[INFO] PROFILING(1571639,python3):2026-06-18-14:32:56.466.079 [prof_atls_plugin.cpp:115] (tid:1571639) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(1571639,python3):2026-06-18-14:32:56.494.909 [prof_atls_plugin.cpp:215] (tid:1571639) Module[61] register callback of ctrl handle.
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.110.768 [repository_manager_log.py:30][log] [log_utils.py:150][repository_manager] [ascend310p]  GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.110.960 [op_compilation.py:324][__single_op_compile] Exception occured, An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.111.974 [opc_common.py:231][_log_error] Traceback (most recent call last):
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/asc_opc_tool/op_compilation.py", line 316, in __single_op_compile
     json_file_path = single_op_obj.op_compile()
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/opc_tool/single_op_compile.py", line 243, in op_compile
@@ -101,30 +101,30 @@ make[4]: *** 正在等待未完成的任务....
     op_func(*inputs, *outputs, *new_attrs, self.__op_info.get(OpcOptions.KERNEL_NAME), **kwargs)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/register/operation_func_mgr.py", line 214, in wrapper
     return func(*args, **kwargs)
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.225 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.111.982 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/common/utils/para_check.py", line 546, in _in_wrapper
     return func(*args, **kwargs)
   File "/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/dynamic/GatherCustom.py", line 222, in gather_custom
     compile_op(src, origin_func_name, op_info, options, code_channel, '{}', {'valueDepend': {}})
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1386, in compile_op
     _compile_ascendc_cce(compile_info, compile_option_tuple, tiling_info)
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.230 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.111.987 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/compile_op.py", line 1536, in _compile_ascendc_cce
     fatbin_objs(obj_files, compile_info.dst_file, compile_info.is_debug, compile_info.compile_log_path)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_compile_base.py", line 542, in fatbin_objs
     CommonUtility.run_cmd_inner(compile_cmd, CompileStage.FATBIN, compile_log_path)
   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 337, in run_cmd_inner
     CommonUtility.dump_build_log(output.decode(), cmds, stage, ret_code)
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.235 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.111.992 [opc_common.py:231][_log_error]   File "/usr/local/Ascend/ascend-toolkit/8.3.RC1/python/site-packages/tbe/tikcpp/ascendc_common_utility.py", line 565, in dump_build_log
     raise Exception("An error occurred during compile phases of {}, msg is {}".\
 Exception: An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
 
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.242 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_278177dd66808faeafe8f201ce476e04.
-[ERROR] TBE(1570353,python3):2026-06-18-14:29:34.248.295 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.111.999 [op_compilation.py:196][record_compile_error_info] Op[GatherCustom] of index[0] compile failed, kernelName: GatherCustom_278177dd66808faeafe8f201ce476e04.
+[ERROR] TBE(1571639,python3):2026-06-18-14:32:58.112.081 [opc_common.py:524][opc_log_full] [../asc_opc_tool/op_compilation.py:198][record_compile_error_info] reason is:[An error occurred during compile phases of CompileStage.FATBIN, msg is ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
 ].
 Opc tool start working now, please wait for a moment.
-[2026-6-18 6:29:34] [ERROR] [ascend310p] GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
+[2026-6-18 6:32:58] [ERROR] [ascend310p] GatherCustom_278177dd66808faeafe8f201ce476e04 ld.lld: error: cannot open /home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/kernel_0/kernel_meta_GatherCustom_278177dd66808faeafe8f201ce476e04/kernel_meta/GatherCustom_278177dd66808faeafe8f201ce476e04_0.o: No such file or directory
 
-[INFO] RUNTIME(1570353,python3):2026-06-18-14:29:34.678.886 [task_fail_callback_data_manager.cc:63] 1570353 ~TaskFailCallBackManager: Destructor.
-[INFO] ATRACE(1570353,python3):2026-06-18-14:29:34.840.644 [stacktrace_signal.c:194](tid:1570353) unregister all signal handlers, can not capture signal.
+[INFO] RUNTIME(1571639,python3):2026-06-18-14:32:58.653.034 [task_fail_callback_data_manager.cc:63] 1571639 ~TaskFailCallBackManager: Destructor.
+[INFO] ATRACE(1571639,python3):2026-06-18-14:32:58.812.860 [stacktrace_signal.c:194](tid:1571639) unregister all signal handlers, can not capture signal.
 /home/orange/Documents/Gather/Gather/build_out/op_kernel/binary/ascend310p/gather_custom/GatherCustom_278177dd66808faeafe8f201ce476e04.json not generated!
 make[4]: *** [/home/orange/Documents/Gather/Gather/build_out/op_kernel/GatherCustom_ascend310p/gather_custom.make:3：gather_custom0] 错误 1
 Traceback (most recent call last):
@@ -138,23 +138,23 @@ gmake[2]: *** [CMakeFiles/Makefile2:425：op_kernel/CMakeFiles/GatherCustom_asce
 gmake[1]: *** [CMakeFiles/Makefile2:379：op_kernel/CMakeFiles/binary.dir/rule] 错误 2
 gmake: *** [Makefile:293：binary] 错误 2
 Consolidate compiler generated dependencies of target cust_optiling
-[ 33%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_gather_custom.cpp.o
-[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/gather_custom.cpp.o
-[ 33%] Generating scripts/install.sh, scripts/upgrade.sh
-[ 41%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 50%] Building CXX object framework/tf_plugin/CMakeFiles/cust_tf_parsers.dir/tensorflow_furthest_point_sampling_plugin.cc.o
 [ 50%] Built target ops_info_gen_ascend310p
-[ 58%] Building CXX object framework/tf_plugin/CMakeFiles/cust_tf_parsers.dir/tensorflow_furthest_point_sampling_plugin.cc.o
+[ 50%] Building CXX object op_host/CMakeFiles/cust_opapi.dir/__/autogen/aclnn_gather_custom.cpp.o
 [ 58%] Generating tbe/op_info_cfg/ai_core/npu_supported_ops.json
+[ 50%] Generating scripts/install.sh, scripts/upgrade.sh
+[ 58%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/gather_custom.cpp.o
+[ 50%] Building CXX object op_host/CMakeFiles/cust_op_proto.dir/__/autogen/op_proto.cc.o
+[ 66%] Built target gen_version_info
 [ 75%] Built target cust_optiling
-[ 75%] Built target gen_version_info
 /home/orange/Documents/Gather/Gather/build_out/autogen /home/orange/Documents/Gather/Gather/build_out/op_kernel/tbe/op_info_cfg/ai_core
 [ 75%] Built target modify_vendor
 [ 75%] Built target optiling_compat
 [INFO] Succed generated /home/orange/Documents/Gather/Gather/build_out/op_kernel/tbe/op_info_cfg/ai_core/npu_supported_ops.json
 [ 75%] Built target npu_supported_ops
 [ 83%] Linking CXX shared library libcust_opapi.so
-[ 83%] Built target cust_opapi
 [ 91%] Linking CXX shared library libcust_tf_parsers.so
+[ 91%] Built target cust_opapi
 [ 91%] Built target cust_tf_parsers
 [100%] Linking CXX shared library libcust_opsproto_rt2.0.so
 [100%] Built target cust_op_proto
